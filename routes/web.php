@@ -39,6 +39,18 @@ Route::get('/checkout', function () {
     return View('user.pages.checkout');
 })->name('checkout');
 
+Route::get('/account', function () {
+    return View('user.pages.account');
+})->name('account');
+
+Route::get('/about', function () {
+    return View('user.pages.about');
+})->name('about');
+
+Route::get('/contact', function () {
+    return View('user.pages.contact');
+})->name('contact');
+
 Route::get('/signin', function () {
     return View('user.pages.signin');
 })->name('signin');

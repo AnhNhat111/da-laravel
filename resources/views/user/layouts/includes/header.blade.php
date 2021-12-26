@@ -76,15 +76,16 @@
                             <li><a href="{{ route('product') }}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
                                     <li><a href="{{ route('product-detail') }}">Shop Details</a></li>
                                     <li><a href="{{ route('cart') }}">Shopping Cart</a></li>
                                     <li><a href="{{ route('checkout') }}">Check Out</a></li>
+                                    <li><a href="{{ route('account') }}">Account</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
+                            <li><a href="{{ route('contact') }}">Contacts</a></li>
                         </ul>
                     </nav>
                 </div>
