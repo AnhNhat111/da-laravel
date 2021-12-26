@@ -40,9 +40,9 @@ Route::get('/checkout', function () {
 })->name('checkout');
 
 Route::get('/signin', function () {
-    return View('user.auth.signin');
+    return View('user.pages.signin');
 })->name('signin');
 
 Route::get('/signup', function () {
-    return View('user.auth.signup');
+    return View('user.pages.signup');
 })->name('signup');

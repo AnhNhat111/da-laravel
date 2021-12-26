@@ -34,7 +34,7 @@
     <!-- Offcanvas Menu End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
+    <header class="header is-top">
         <div class="header__top">
             <div class="container">
                 <div class="row">
