@@ -39,9 +39,9 @@ Route::get('/checkout', function () {
 })->name('checkout');
 
 Route::get('/signin', function () {
-    return View('user.login.signin');
+    return View('user.auth.signin');
 })->name('signin');
 
 Route::get('/signup', function () {
-    return View('user.login.signup');
+    return View('user.auth.signup');
 })->name('signup');
