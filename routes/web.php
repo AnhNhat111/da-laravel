@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
-
 Route::get('/', function () {
     return View('user.pages.index');
 })->name('index');
