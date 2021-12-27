@@ -3,6 +3,7 @@
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', function () {
     return View('user.pages.index');
 })->name('index');
 
@@ -58,3 +54,23 @@ Route::get('/signin', function () {
 Route::get('/signup', function () {
     return View('user.pages.signup');
 })->name('signup');
+
+Route::get('/login', function () {
+    return view('admin.pages.login');
+});
+
+Route::get('/home', function () {
+    return view('admin.pages.home');
+});
+
+Route::get('/QLtaikhoan', function () {
+    return view('admin.pages.QLtaikhoan');
+});
+
+Route::get('/QLsanpham', function () {
+    return view('admin.pages.QLsanpham');
+});
+
+Route::get('/QLhoadon', function () {
+    return view('admin.pages.QLhoadon');
+});
