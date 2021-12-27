@@ -56,7 +56,7 @@ Route::get('/signup', function () {
 })->name('signup');
 
 Route::get('/login', function () {
-    return view('login');
+    return view('admin.pages.login');
 });
 
 Route::get('/home', function () {
