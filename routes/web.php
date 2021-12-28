@@ -67,6 +67,7 @@ Route::get('/QLtaikhoan', function () {
     return view('admin.pages.QLtaikhoan');
 });
 
+
 Route::get('/QLsanpham', function () {
     return view('admin.pages.QLsanpham');
 });
