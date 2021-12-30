@@ -1,7 +1,7 @@
 @extends('admin.Layouts.layoutmaster')
 
 @section('body')
-<h1>Đây là trang quản lý hoá đơn</h1>
+<h1>Đây là trang quản lý hoá đơn bán</h1>
 <table class="table">
     <thead>
         <tr>

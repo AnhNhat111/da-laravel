@@ -55,22 +55,38 @@ Route::get('/signup', function () {
     return View('user.pages.signup');
 })->name('signup');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/Dangnhap', function () {
+    return view('admin.pages.Dangnhap');
+})->name('Dangnhap');
 
-Route::get('/home', function () {
+Route::get('/homeadmin', function () {
     return view('admin.pages.home');
-});
+})->name('homeadmin');
 
 Route::get('/QLtaikhoan', function () {
     return view('admin.pages.QLtaikhoan');
-});
+})->name('QLtaikhoan');
 
 Route::get('/QLsanpham', function () {
     return view('admin.pages.QLsanpham');
-});
+})->name('QLsanpham');
 
-Route::get('/QLhoadon', function () {
-    return view('admin.pages.QLhoadon');
-});
+Route::get('/QLhoadonnhap', function () {
+    return view('admin.pages.QLhoadonnhap');
+})->name('QLhoadonnhap');
+
+Route::get('/QLhoadonban', function () {
+    return view('admin.pages.QLhoadonban');
+})->name('QLhoadonban');
+
+Route::get('/QLloaiSP', function () {
+    return view('admin.pages.QLloaiSP');
+})->name('QLloaiSP');
+
+Route::get('/Themsanpham', function () {
+    return view('admin.pages.Themsanpham');
+})->name('Themsanpham');
+
+Route::get('/Dangky', function () {
+    return view('admin.pages.Dangky');
+})->name('Dangky');
