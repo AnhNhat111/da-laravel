@@ -55,15 +55,9 @@ Route::get('/signup', function () {
     return View('user.pages.signup');
 })->name('signup');
 
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('admin.pages.login');
-});
-=======
 Route::get('/Dangnhap', function () {
     return view('admin.pages.Dangnhap');
 })->name('Dangnhap');
->>>>>>> hoangphuc
 
 Route::get('/homeadmin', function () {
     return view('admin.pages.home');
