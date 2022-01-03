@@ -15,11 +15,8 @@ class sanpham extends Model
         'TRANGTHAI',
         'HINHANH',
         'MOTA',
-        'GIABAN',
         'SLTK',
-        'COLOR',
-        'SIZE'
     ];
     protected $primarykey = 'Id';
-    protected $table ='sanpham';
+    protected $table = 'sanpham';
 }

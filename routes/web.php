@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoaiSanPhamController;
+use App\Models\loaisanpham;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Route;
 
@@ -91,3 +93,5 @@ Route::get('/Themsanpham', function () {
 Route::get('/Dangky', function () {
     return view('admin.pages.Dangky');
 })->name('Dangky');
+
+Route::resource('loaisp', LoaiSanPhamController::class);
