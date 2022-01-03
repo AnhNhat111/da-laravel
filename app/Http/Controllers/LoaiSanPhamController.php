@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\loaisanpham;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LoaiSanPhamController extends Controller
 {
@@ -107,6 +108,8 @@ class LoaiSanPhamController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $kq = DB::delete('delete from loaisanpham where id = ?', [$id]);
+        return redirect()->route('loaisp.index');
     }
 }

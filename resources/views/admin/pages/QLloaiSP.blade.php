@@ -23,7 +23,11 @@
                 <td>{{ $row->created_at}}</td>
                 <td>{{ $row->updated_at}}</td>
                 <td><a href="{{ route('loaisp.edit',$row->id) }}">Sửa </a></td>
-                {{-- <td><a href="{{ route('loaisp.destroy',$row->id) }}">Xóa </a></td> --}}
+                <td><form action="{{ route('loaisp.destroy',$row->id) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit">Xóa</button>
+                </form></td>
             </tr>
         @endforeach
     </tbody>
