@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Sanpham extends Migration
+class CreateChitietsanphamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class Sanpham extends Migration
      */
     public function up()
     {
-        Schema::create('sanpham', function (Blueprint $table) {
+        Schema::create('chitietsanphams', function (Blueprint $table) {
             $table->id();
-            $table->integer('LOAISP_ID');
-            $table->string('TENSP');
-            $table->integer('TRANGTHAI');
-            $table->string('HINHANH');
-            $table->string('MOTA');
-            $table->integer('SLTK');
+            $table->integer('SANPHAMID');
+            $table->string('SIZE');
+            $table->string('COLOR');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class Sanpham extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sanpham');
+        Schema::dropIfExists('chitietsanphams');
     }
 }
