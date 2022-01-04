@@ -3,6 +3,7 @@
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Models\loaisanpham;
 use Facade\FlareClient\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -95,3 +96,7 @@ Route::get('/Dangky', function () {
 })->name('Dangky');
 
 Route::resource('loaisp', LoaiSanPhamController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
