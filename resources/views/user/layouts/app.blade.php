@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<head>
+<head>    
+    <base href="{{ asset('/') }}">
+
     <meta charset="UTF-8">
     <meta name="description" content="Male_Fashion Template">
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
