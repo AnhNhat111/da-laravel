@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\LoaiSanPhamController;
+use App\Models\loaisanpham;
 use Facade\FlareClient\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -67,6 +70,7 @@ Route::get('/QLtaikhoan', function () {
     return view('admin.pages.QLtaikhoan');
 })->name('QLtaikhoan');
 
+
 Route::get('/QLsanpham', function () {
     return view('admin.pages.QLsanpham');
 })->name('QLsanpham');
@@ -90,3 +94,9 @@ Route::get('/Themsanpham', function () {
 Route::get('/Dangky', function () {
     return view('admin.pages.Dangky');
 })->name('Dangky');
+
+Route::resource('loaisp', LoaiSanPhamController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
