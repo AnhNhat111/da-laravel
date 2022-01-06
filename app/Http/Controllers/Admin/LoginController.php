@@ -37,10 +37,8 @@ class LoginController extends Controller
         'email' => $request->email,
         'password' => $request->password
     ], $request->get('remember'))) {
-        //dd('loi cmm')
          return redirect()->intended(route('admin.index'));
     }
-        //dd('loi cmmmmmmmmmm')
          return back()->withInput($request->only('email', 'remember'));
     }
     public function logout(Request $request)
