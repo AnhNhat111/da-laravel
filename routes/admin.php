@@ -20,10 +20,10 @@ Route::group(['prefix' => '/'], function () {
                 return view('admin.pages.home');
             })->name('admin.dashboard');
 
-            Route::group(['prefix' => 'categories'], function() {
+            Route::group(['prefix' => 'loaisanpham'], function() {
 
                 Route::get('/', [LoaiSanPhamController::class, 'index'])->name('admin.categories.index');
+                
             });
         });
 });
-
