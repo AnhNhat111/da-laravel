@@ -54,7 +54,7 @@
                                     </div> 
                                     <button class="btn login-form__btn submit w-100">Đăng nhập</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Bạn chưa có tài khoản ?  <a href="{{ route('Dangky')}}" class="text-primary">Đăng ký</a> ngay nhé.</p>
+                                <p class="mt-5 login-form__footer">Bạn chưa có tài khoản ?  <a href="" class="text-primary">Đăng ký</a> ngay nhé.</p>
                             </div>
                         </div>
                     </div>
