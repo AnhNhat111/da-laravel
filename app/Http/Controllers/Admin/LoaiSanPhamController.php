@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\loaisanpham;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class LoaiSanPhamController extends Controller
@@ -11,7 +13,12 @@ class LoaiSanPhamController extends Controller
     protected $table = "loaisanpham";
     protected $model;
     function __construct()
+<<<<<<< HEAD:app/Http/Controllers/LoaiSanPhamController.php
     {   
+=======
+    {
+        // $this->middleware('guest:admin')->except('logout');
+>>>>>>> 9f663231de6b464692051449d3849174e922b449:app/Http/Controllers/Admin/LoaiSanPhamController.php
         $this->model = new loaisanpham();
     }
     /**
@@ -74,8 +81,10 @@ class LoaiSanPhamController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->model::find($id);
         return view('admin.pages.loaisp.edit', [
-            'id' => $id
+            'id' => $id,
+            'data' =>$data
         ]);
     }
 

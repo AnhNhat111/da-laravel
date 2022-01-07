@@ -14,15 +14,21 @@ class Sanpham extends Migration
     public function up()
     {
         Schema::create('sanpham', function (Blueprint $table) {
-            $table->id();
-            $table->integer('LOAISP_ID');
+            $table->Increments('Id');
+            $table->integer('LOAISP_ID')->unsigned();
             $table->string('TENSP');
             $table->integer('TRANGTHAI');
             $table->string('HINHANH');
             $table->string('MOTA');
+            $table->integer('GIABAN');
             $table->integer('SLTK');
+            $table->string('COLOR');
+            $table->string('SIZE');
             $table->timestamps();
+
+            $table->foreign('LOAISP_ID')->references('Id')->on('loaisanpham');
         });
+
     }
 
     /**
