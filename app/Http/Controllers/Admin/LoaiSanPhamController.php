@@ -77,8 +77,10 @@ class LoaiSanPhamController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->model::find($id);
         return view('admin.pages.loaisp.edit', [
-            'id' => $id
+            'id' => $id,
+            'data' =>$data
         ]);
     }
 
