@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Hoadon extends Migration
+class Loaitaikhoan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class Hoadon extends Migration
      */
     public function up()
     {
-        Schema::create('hoadon', function (Blueprint $table) {
-            $table->id();
-            $table->integer('TAIKHOAN_ID');
-            $table->string('DIACHI');
-            $table->string('GHICHU');
-            $table->double('TONGTIEN');
-            $table->integer('TRANGTHAI');
+        Schema::create('loaitaikhoan', function (Blueprint $table) {
+            $table->increments('Id');
+            $table->string('TENLOAITAIKHOAN');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class Hoadon extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hoadon');
+        Schema::dropIfExists('loaitaikhoan');
     }
 }

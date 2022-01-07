@@ -14,15 +14,17 @@ class Taikhoan extends Migration
     public function up()
     {
         Schema::create('taikhoan',function (Blueprint $table) {
-            $table->id();
+            $table->Increments('Id');
             $table->string('TENDANGNHAP');
             $table->string('MATKHAU');
             $table->string('TENHIENTHI');
             $table->integer('SODIENTHOAI');
             $table->string('EMAIL');
             $table->integer('TRANGTHAI');
-            $table->integer('LOAITK_ID');
+            $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
+
+            $table->foreign('LOAITK_ID')->references('Id')->on('loaitaikhoan');
         });
     }
 
