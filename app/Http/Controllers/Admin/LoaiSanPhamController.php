@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\loaisanpham;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class LoaiSanPhamController extends Controller
@@ -11,8 +13,8 @@ class LoaiSanPhamController extends Controller
     protected $table = "loaisanpham";
     protected $model;
     function __construct()
-    {   
-       // $this->middleware('guest:admin')->except('logout');
+    {
+        // $this->middleware('guest:admin')->except('logout');
         $this->model = new loaisanpham();
     }
     /**
