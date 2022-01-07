@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\loaisanpham;
+use App\Models\taikhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class LoaiSanPhamController extends Controller
+class QuanLyTaiKhoanController extends Controller
 {
-    protected $table = "loaisanpham";
+    protected $table = "taikhoan";
     protected $model;
     function __construct()
     {   
-        $this->model = new loaisanpham();
+        $this->model = new taikhoan();
     }
     /**
      * Display a listing of the resource.

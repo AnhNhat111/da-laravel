@@ -2,7 +2,7 @@
 
 @section('body')
 <h1>Đây là trang quản lý loại sản phẩm</h1>
-<a href="{{ route('loaisp.create') }}">Thêm</a>
+<a href="{{ route('admin.loaisp.create') }}">Thêm</a>
 
 <table class="table">
     <thead>

@@ -22,8 +22,8 @@ Route::group(['prefix' => '/'], function () {
 
             Route::group(['prefix' => 'loaisanpham'], function() {
 
-                Route::get('/', [LoaiSanPhamController::class, 'index'])->name('admin.categories.index');
-                
+                Route::get('/', [LoaiSanPhamController::class, 'index'])->name('admin.loaisp.index');
+                // Route::get('/create', [LoaiSanPhamController::class, 'create'])->name('admin.loaisp.create');
             });
         });
 });
