@@ -14,12 +14,16 @@ class Giohang extends Migration
     public function up()
     {
         Schema::create('giohang', function (Blueprint $table) {
-            $table->integer('TAIKHOAN_ID');
-            $table->integer('SANPHAM_ID');
-            $table->integer('HOADON_ID');
+            $table->integer('TAIKHOAN_ID')->unsigned();
+            $table->integer('SANPHAM_ID')->unsigned();
+            $table->integer('HOADON_ID')->unsigned();
             $table->integer('SOLUONG');
             $table->double('TONGTIEN');
             $table->timestamps();
+
+            $table->foreign('TAIKHOAN_ID')->references('Id')->on('taikhoan');
+            $table->foreign('SANPHAM_ID')->references('Id')->on('sanpham');
+            $table->foreign('HOADON_ID')->references('Id')->on('hoadon');
         });
     }
 
