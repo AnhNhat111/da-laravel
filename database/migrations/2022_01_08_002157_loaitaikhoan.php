@@ -14,7 +14,7 @@ class Loaitaikhoan extends Migration
     public function up()
     {
         Schema::create('loaitaikhoan', function (Blueprint $table) {
-            $table->increments('Id');
+            $table->increments('id');
             $table->string('TENLOAITAIKHOAN');
             $table->timestamps();
         });

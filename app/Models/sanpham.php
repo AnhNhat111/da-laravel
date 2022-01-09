@@ -9,7 +9,6 @@ class sanpham extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
         'LOAISP_ID',
         'TENSP',
         'TRANGTHAI',
@@ -20,6 +19,6 @@ class sanpham extends Model
         'COLOR',
         'SIZE'
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table = 'sanpham';
 }

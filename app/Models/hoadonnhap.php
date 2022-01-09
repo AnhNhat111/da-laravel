@@ -9,7 +9,6 @@ class hoadonnhap extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
         'TAIKHOAN_ID',
         'SANPHAM_ID',
         'NGAYNHAP',
@@ -17,6 +16,6 @@ class hoadonnhap extends Model
         'TRANGTHAI',
         'TONGTIEN',
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table ='hoadonnhap';
 }

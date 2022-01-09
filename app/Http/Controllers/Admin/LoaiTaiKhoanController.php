@@ -24,7 +24,7 @@ class LoaiTaiKhoanController extends Controller
     public function index()
     {
         $data = $this->model->get();
-        return view('admin.pages.QLloaitaikhoan', [
+        return view('admin.pages.loaitaikhoan.index', [
             'data' => $data
         ]);
     }
@@ -48,7 +48,7 @@ class LoaiTaiKhoanController extends Controller
     public function store(Request $request)
     {
         $data = [
-            "TENlOAITAIKHOAN" => $request->TENlOAITAIKHOAN
+            "TENLOAITAIKHOAN" => $request->TENLOAITAIKHOAN
         ];
         $tk = $this->model::create($data);
         if ($tk->save()) {
