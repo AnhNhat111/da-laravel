@@ -112,7 +112,7 @@ class LoaiSanPhamController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from loaisanpham where id = ?', [$id]);
+        $kq = DB::delete('delete from loaisanpham where Id = ?', [$id]);
         return redirect()->route('loaisp.index');
     }
 }
