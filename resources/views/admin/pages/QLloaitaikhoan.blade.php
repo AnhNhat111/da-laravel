@@ -16,7 +16,6 @@
     <tbody>
         @foreach ($data as $row)
             <tr>
-
                 <td>{{ $row->id}}</td>               
                 <td>{{ $row->TENlOAITAIKHOAN}}</td>
                 <td>{{ $row->created_at}}</td>
