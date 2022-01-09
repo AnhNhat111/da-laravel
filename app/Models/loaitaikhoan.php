@@ -9,9 +9,13 @@ class loaitaikhoan extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
-        'TENlOAITAIKHOAN',
+        'TENLOAITAIKHOAN',
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table ='loaitaikhoan';
+
+    public function loaiTk()
+    {
+        return $this->hasMany(taikhoan::class,'LOAITK_ID','id');
+    }
 }

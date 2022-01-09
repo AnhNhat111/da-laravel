@@ -9,13 +9,12 @@ class hoadon extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
         'TAIKHOAN_ID',
         'DIACHI',
         'GHICHU',
         'TONGTIEN',
         'TRANGTHAI'
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table ='hoadon';
 }

@@ -10,13 +10,6 @@
         <div class="form-group">
             <label for="my-input">Loại tài khoản</label>
             <input id="my-input" required class="form-control" type="text" name="LOAITK_ID">
-             {{-- <select class="form-control" name="LOAITK_ID" id="">
-                 <option value="0">Chọn Loại Tài Khoản</option>
-                 {{-- @foreach ($data as $user)
-                     <option value="{{ $user->Id }}">{{ $user->TENDANGNHAP }}</option>
-                 @endforeach --}}
-             </select> --}}
-             <br>
             <label for="my-input">Email</label>
             <input id="my-input" required class="form-control" type="text" name="EMAIL">
             <label for="my-input">Tên đăng nhập</label>

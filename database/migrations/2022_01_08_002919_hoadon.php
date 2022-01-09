@@ -14,7 +14,7 @@ class Hoadon extends Migration
     public function up()
     {
         Schema::create('hoadon', function (Blueprint $table) {
-            $table->Increments('Id');
+            $table->Increments('id');
             $table->integer('TAIKHOAN_ID')->unsigned();
             $table->string('DIACHI');
             $table->string('GHICHU');
@@ -22,7 +22,7 @@ class Hoadon extends Migration
             $table->integer('TRANGTHAI');
             $table->timestamps();
 
-            $table->foreign('TAIKHOAN_ID')->references('Id')->on('taikhoan');
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 

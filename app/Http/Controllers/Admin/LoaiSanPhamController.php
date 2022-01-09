@@ -102,6 +102,12 @@ class LoaiSanPhamController extends Controller
             return redirect()->route('loaisp.index');
         }
         return back()->withInput();
+
+    // $data = $this->model->edit($request,$id);
+    //  if($data){
+    //     return redirect()->route('loaisp.index');
+    //  }
+    //  return back()->withInput();
     }
 
     /**
@@ -112,7 +118,7 @@ class LoaiSanPhamController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from loaisanpham where Id = ?', [$id]);
+        $kq = DB::delete('delete from loaisanpham where id = ?', [$id]);
         return redirect()->route('loaisp.index');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\loaitaikhoan;
 use App\Models\taikhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -24,9 +25,11 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function index()
     {
+        $loaitk =  loaitaikhoan::all();
         $data = $this->model->get();
         return view('admin.pages.quanlytaikhoan.index', [
-            'data' => $data
+            'data' => $data,
+            'loaitk' => $loaitk,
         ]);
     }
 
@@ -107,13 +110,18 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $loaisp = $this->model::find($id);
-        if (!$loaisp) {
+        $loaitk = $this->model::find($id);
+        if (!$loaitk) {
             return back()->withInput();
         }
-        $loaisp->TENLOAISP = $request->TENLOAISP;
-        if ($loaisp->save()) {
-            return redirect()->route('quanlytaikhoan.index');
+        $loaitk->LOAITK_ID = $request->LOAITK_ID;
+        $loaitk->EMAIL = $request->EMAIL;
+        $loaitk->TENDANGNHAP = $request->TENDANGNHAP;
+        $loaitk->TENHIENTHI = $request->TENHIENTHI;
+        $loaitk->SODIENTHOAI = $request->SODIENTHOAI;
+        $loaitk->TRANGTHAI = $request->TRANGTHAI;
+        if ($loaitk->save()) {
+            return redirect()->route('quan-ly-tai-khoan.index');
         }
         return back()->withInput();
     }
@@ -127,6 +135,6 @@ class QuanLyTaiKhoanController extends Controller
     public function destroy($id)
     {
         $kq = DB::delete('delete from taikhoan where id = ?', [$id]);
-        return redirect()->route('quanlytaikhoan.index');
+        return redirect()->route('quan-ly-tai-khoan.index');
     }
 }
