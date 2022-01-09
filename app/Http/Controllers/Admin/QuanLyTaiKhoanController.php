@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\taikhoan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class QuanLyTaiKhoanController extends Controller
 {
     protected $table = "taikhoan";
     protected $model;
     function __construct()
-    {   
+    {
+        // $this->middleware('guest:admin')->except('logout');
         $this->model = new taikhoan();
     }
     /**
@@ -22,7 +25,7 @@ class QuanLyTaiKhoanController extends Controller
     public function index()
     {
         $data = $this->model->get();
-        return view('admin.pages.QLloaiSP', [
+        return view('admin.pages.quanlytaikhoan.index', [
             'data' => $data
         ]);
     }
@@ -34,7 +37,7 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.loaisp.create');
+        return view('admin.pages.quanlytaikhoan.create');
     }
 
     /**
@@ -45,12 +48,26 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
-            "TENLOAISP" => $request->TENLOAISP
-        ];
-        $a = $this->model::create($data);
-        if ($a->save()) {
-            return redirect()->route('loaisp.index');
+        $data = $request->validate([
+            "LOAITK_ID" => 'required|string|unique:taikhoan,LOAITK_ID',
+            "EMAIL" => 'required|string|unique:taikhoan,EMAIL',
+            "TENDANGNHAP" => 'required|string|unique:taikhoan,TENDANGNHAP',
+            "MATKHAU" =>  'required|string',
+            "TENHIENTHI" => 'required|string',
+            "SODIENTHOAI" => 'required|string|unique:taikhoan,SODIENTHOAI',    
+            "TRANGTHAI" => 'integer'
+        ]);
+        $create = $this->model::create([
+            "LOAITK_ID" => $data['LOAITK_ID'],
+            "EMAIL" => $data['EMAIL'],
+            "TENDANGNHAP" => $data['TENDANGNHAP'],
+            "MATKHAU" => bcrypt($data['MATKHAU']),
+            "TENHIENTHI" => $data['TENHIENTHI'],
+            "SODIENTHOAI" => $data['SODIENTHOAI'],     
+            "TRANGTHAI" => $data['TRANGTHAI'],
+        ]);
+        if ($create->save()) {
+            return redirect()->route('quan-ly-tai-khoan.index');
         }
         return back()->withInput();
     }
@@ -74,8 +91,10 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.pages.loaisp.edit', [
-            'id' => $id
+        $data = $this->model::find($id);
+        return view('admin.pages.quanlytaikhoan.edit', [
+            'id' => $id,
+            'data' =>$data
         ]);
     }
 
@@ -94,7 +113,7 @@ class QuanLyTaiKhoanController extends Controller
         }
         $loaisp->TENLOAISP = $request->TENLOAISP;
         if ($loaisp->save()) {
-            return redirect()->route('loaisp.index');
+            return redirect()->route('quanlytaikhoan.index');
         }
         return back()->withInput();
     }
@@ -107,7 +126,7 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from loaisanpham where id = ?', [$id]);
-        return redirect()->route('loaisp.index');
+        $kq = DB::delete('delete from taikhoan where id = ?', [$id]);
+        return redirect()->route('quanlytaikhoan.index');
     }
 }

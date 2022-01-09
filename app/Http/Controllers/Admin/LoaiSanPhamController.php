@@ -13,12 +13,8 @@ class LoaiSanPhamController extends Controller
     protected $table = "loaisanpham";
     protected $model;
     function __construct()
-<<<<<<< HEAD:app/Http/Controllers/LoaiSanPhamController.php
-    {   
-=======
     {
         // $this->middleware('guest:admin')->except('logout');
->>>>>>> 9f663231de6b464692051449d3849174e922b449:app/Http/Controllers/Admin/LoaiSanPhamController.php
         $this->model = new loaisanpham();
     }
     /**
@@ -29,7 +25,7 @@ class LoaiSanPhamController extends Controller
     public function index()
     {
         $data = $this->model->get();
-        return view('admin.pages.QLloaiSP', [
+        return view('admin.pages.loaisp.index', [
             'data' => $data
         ]);
     }

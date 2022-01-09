@@ -16,7 +16,7 @@ class Loaisanpham extends Migration
         Schema::create('loaisanpham', function (Blueprint $table) {
             $table->increments('Id')->unsigned();
             $table->string('TENLOAISP');
-            $table->string('MASP');
+            //$table->string('MASP');
             $table->timestamps();
         });
     }

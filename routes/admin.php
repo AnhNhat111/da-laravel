@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoaiSanPhamController;
+use App\Http\Controllers\Admin\QuanLyTaiKhoanController;
 
 Route::group(['prefix' => '/'], function () {
 
@@ -17,15 +18,9 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::get('/', function () {
-            return view('admin.pages.home');
+            return view('admin.pages.login.home');
         })->name('admin.dashboard');
-
-        // Route::group(['prefix' => 'loaisp'], function () {
-
-        //     Route::get('/', [LoaiSanPhamController::class, 'index'])->name('admin.loaisp.index');
-        //     Route::get('/create', [LoaiSanPhamController::class, 'create'])->name('admin.loaisp.create');
-        //     Route::get('/edit', [LoaiSanPhamController::class, 'edit'])->name('admin.loaisp.edit');
-        // });
         Route::resource('loaisp', LoaiSanPhamController::class);
+        Route::resource('quan-ly-tai-khoan', QuanLyTaiKhoanController::class);
     });
 });
