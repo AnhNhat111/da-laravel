@@ -96,7 +96,7 @@ class LoaiTaiKhoanController extends Controller
         if (!$loaitk) {
             return back()->withInput();
         }
-        $loaitk->TENlOAITAIKHOAN = $request->TENlOAITAIKHOAN;
+        $loaitk->TENLOAITAIKHOAN = $request->TENLOAITAIKHOAN;
         if ($loaitk->save()) {
             return redirect()->route('loaitaikhoan.index');
         }
@@ -111,7 +111,7 @@ class LoaiTaiKhoanController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from loaitaikhoan where id = ?', [$id]);
+        $kq = DB::delete('delete from loaitaikhoan where Id = ?', [$id]);
         return redirect()->route('loaitaikhoan.index');
     }
 }
