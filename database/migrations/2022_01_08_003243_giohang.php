@@ -21,9 +21,9 @@ class Giohang extends Migration
             $table->double('TONGTIEN');
             $table->timestamps();
 
-            $table->foreign('TAIKHOAN_ID')->references('Id')->on('taikhoan');
-            $table->foreign('SANPHAM_ID')->references('Id')->on('sanpham');
-            $table->foreign('HOADON_ID')->references('Id')->on('hoadon');
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
+            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
+            $table->foreign('HOADON_ID')->references('id')->on('hoadon');
         });
     }
 

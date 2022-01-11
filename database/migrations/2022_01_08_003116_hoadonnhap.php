@@ -14,7 +14,7 @@ class Hoadonnhap extends Migration
     public function up()
     {
         Schema::create('hoadonnhap', function (Blueprint $table) {
-            $table->Increments('Id');
+            $table->Increments('id');
             $table->integer('TAIKHOAN_ID')->unsigned();
             $table->integer('SANPHAM_ID')->unsigned();
             $table->date('NGAYNHAP');
@@ -23,8 +23,8 @@ class Hoadonnhap extends Migration
             $table->double('TONGTIEN');
             $table->timestamps();
 
-            $table->foreign('SANPHAM_ID')->references('Id')->on('sanpham');
-            $table->foreign('TAIKHOAN_ID')->references('Id')->on('taikhoan');
+            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 

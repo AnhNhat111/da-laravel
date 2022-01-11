@@ -14,7 +14,7 @@ class Taikhoan extends Migration
     public function up()
     {
         Schema::create('taikhoan',function (Blueprint $table) {
-            $table->Increments('Id');
+            $table->Increments('id');
             $table->string('TENDANGNHAP');
             $table->string('MATKHAU');
             $table->string('TENHIENTHI');
@@ -24,7 +24,7 @@ class Taikhoan extends Migration
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
 
-            $table->foreign('LOAITK_ID')->references('Id')->on('loaitaikhoan');
+            $table->foreign('LOAITK_ID')->references('id')->on('loaitaikhoan');
         });
     }
 

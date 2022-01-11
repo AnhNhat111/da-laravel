@@ -9,9 +9,8 @@ class loaitaikhoan extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
-        'TENlOAITAIKHOAN',
+        'TENLOAITAIKHOAN',
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table ='loaitaikhoan';
 }

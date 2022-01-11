@@ -16,7 +16,7 @@
     <tbody>
         @foreach ($data as $row)
             <tr>
-                <td>{{ $row->Id}}</td>               
+                <td>{{ $row->id}}</td>               
                 <td>{{ $row->TENLOAITAIKHOAN}}</td>
                 <td>{{ $row->created_at}}</td>
                 <td>{{ $row->updated_at}}</td>
@@ -27,7 +27,6 @@
                     @method('delete')
                     <button type="submit" class="btn btn-danger">Xóa</button>
                 </td>
-            
             </tr>
         @endforeach
     </tbody>

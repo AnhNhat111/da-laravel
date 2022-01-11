@@ -25,7 +25,7 @@ class LoaiSanPhamController extends Controller
     public function index()
     {
         $data = $this->model->get();
-        return view('admin.pages.QLloaiSP', [
+        return view('admin.pages.loaisp.index', [
             'data' => $data
         ]);
     }
@@ -102,6 +102,12 @@ class LoaiSanPhamController extends Controller
             return redirect()->route('loaisp.index');
         }
         return back()->withInput();
+
+    // $data = $this->model->edit($request,$id);
+    //  if($data){
+    //     return redirect()->route('loaisp.index');
+    //  }
+    //  return back()->withInput();
     }
 
     /**
