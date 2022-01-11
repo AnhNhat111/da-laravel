@@ -2,7 +2,7 @@
 
 @section('body')
 <h1>Đây là trang sửa loại sản phẩm</h1>
-<form action="{{ route('loaisp.update',$Id) }}" method="post">
+<form action="{{ route('loaisp.update',$id) }}" method="post">
     @csrf
     @method('put')
     <div class="form-group">

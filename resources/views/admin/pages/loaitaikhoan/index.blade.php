@@ -21,8 +21,8 @@
                 <td>{{ $row->created_at}}</td>
                 <td>{{ $row->updated_at}}</td>
                 <td class="d-inline-flex">
-                    <a href="{{ route('loaitaikhoan.edit',$row->Id) }}"><button type="button" class="btn btn-outline-info">Sửa</button> </a>
-                    <form action="{{ route('loaitaikhoan.destroy',$row->Id) }}" method="POST">
+                    <a href="{{ route('loaitaikhoan.edit',$row->id) }}"><button type="button" class="btn btn-outline-info">Sửa</button> </a>
+                    <form action="{{ route('loaitaikhoan.destroy',$row->id) }}" method="POST">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger">Xóa</button>
