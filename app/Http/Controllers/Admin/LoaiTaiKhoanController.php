@@ -96,7 +96,7 @@ class LoaiTaiKhoanController extends Controller
         if (!$loaitk) {
             return back()->withInput();
         }
-        $loaitk->TENlOAITAIKHOAN = $request->TENlOAITAIKHOAN;
+        $loaitk->TENLOAITAIKHOAN = $request->TENlOAITAIKHOAN;
         if ($loaitk->save()) {
             return redirect()->route('loaitaikhoan.index');
         }

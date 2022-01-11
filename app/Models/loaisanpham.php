@@ -11,8 +11,6 @@ class loaisanpham extends Model
     protected $fillable = [
         'Id',
         'TENLOAISP',
-        'MASP',
-        'TRANGTHAI',
     ];
     protected $primarykey = 'Id';
     protected $table = 'loaisanpham';
