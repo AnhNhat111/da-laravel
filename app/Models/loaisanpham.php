@@ -11,6 +11,8 @@ class loaisanpham extends Model
     use HasFactory;
     protected $fillable = [
         'TENLOAISP',
+        //'MASP',
+        'TRANGTHAI',
     ];
     protected $primarykey = 'id';
     protected $table = 'loaisanpham';
