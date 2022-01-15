@@ -9,14 +9,16 @@ class sanpham extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
         'LOAISP_ID',
         'TENSP',
         'TRANGTHAI',
         'HINHANH',
         'MOTA',
+        'GIABAN',
         'SLTK',
+        'COLOR',
+        'SIZE'
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table = 'sanpham';
 }

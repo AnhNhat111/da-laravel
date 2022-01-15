@@ -9,7 +9,6 @@ class taikhoan extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'Id',
         'TENDANGNHAP',
         'MATKHAU',
         'TENHIENTHI',
@@ -19,7 +18,6 @@ class taikhoan extends Model
         'TRANGTHAI',
         'LOAITK_ID'
     ];
-    protected $primarykey = 'Id';
+    protected $primarykey = 'id';
     protected $table ='taikhoan';
-
 }

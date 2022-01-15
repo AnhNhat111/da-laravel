@@ -14,14 +14,17 @@ class Hoadonnhap extends Migration
     public function up()
     {
         Schema::create('hoadonnhap', function (Blueprint $table) {
-            $table->id();
-            $table->integer('TAIKHOAN_ID');
-            $table->integer('SANPHAM_ID');
+            $table->Increments('id');
+            $table->integer('TAIKHOAN_ID')->unsigned();
+            $table->integer('SANPHAM_ID')->unsigned();
             $table->date('NGAYNHAP');
             $table->string('NHACUNGCAP');
             $table->integer('TRANGTHAI');
             $table->double('TONGTIEN');
             $table->timestamps();
+
+            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Giohang extends Migration
+class Hoadon extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,16 @@ class Giohang extends Migration
      */
     public function up()
     {
-        Schema::create('giohang', function (Blueprint $table) {
-            $table->integer('TAIKHOAN_ID');
-            $table->integer('SANPHAM_ID');
-            $table->integer('HOADON_ID');
-            $table->integer('SOLUONG');
+        Schema::create('hoadon', function (Blueprint $table) {
+            $table->Increments('id');
+            $table->integer('TAIKHOAN_ID')->unsigned();
+            $table->string('DIACHI');
+            $table->string('GHICHU');
             $table->double('TONGTIEN');
+            $table->integer('TRANGTHAI');
             $table->timestamps();
+
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 
@@ -30,6 +33,6 @@ class Giohang extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('giohang');
+        Schema::dropIfExists('hoadon');
     }
 }

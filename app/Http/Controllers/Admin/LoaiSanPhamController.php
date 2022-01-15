@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\loaisanpham;
 use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 
 class LoaiSanPhamController extends Controller
@@ -12,6 +14,7 @@ class LoaiSanPhamController extends Controller
     protected $model;
     function __construct()
     {
+        // $this->middleware('guest:admin')->except('logout');
         $this->model = new loaisanpham();
     }
     /**
@@ -22,7 +25,7 @@ class LoaiSanPhamController extends Controller
     public function index()
     {
         $data = $this->model->get();
-        return view('admin.pages.QLloaiSP', [
+        return view('admin.pages.loaisp.index', [
             'data' => $data
         ]);
     }
@@ -45,7 +48,6 @@ class LoaiSanPhamController extends Controller
      */
     public function store(Request $request)
     {
-
         $data = [
             "TENLOAISP" => $request->TENLOAISP
         ];
@@ -75,8 +77,10 @@ class LoaiSanPhamController extends Controller
      */
     public function edit($id)
     {
+        $data = $this->model::find($id);
         return view('admin.pages.loaisp.edit', [
-            'id' => $id
+            'id' => $id,
+            'data' =>$data
         ]);
     }
 
@@ -98,6 +102,12 @@ class LoaiSanPhamController extends Controller
             return redirect()->route('loaisp.index');
         }
         return back()->withInput();
+
+    // $data = $this->model->edit($request,$id);
+    //  if($data){
+    //     return redirect()->route('loaisp.index');
+    //  }
+    //  return back()->withInput();
     }
 
     /**
@@ -108,7 +118,6 @@ class LoaiSanPhamController extends Controller
      */
     public function destroy($id)
     {
-
         $kq = DB::delete('delete from loaisanpham where id = ?', [$id]);
         return redirect()->route('loaisp.index');
     }

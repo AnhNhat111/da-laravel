@@ -2,7 +2,7 @@
 
 @section('body')
 <h1>Đây là trang quản lý loại sản phẩm</h1>
-<a href="{{ route('loaisp.create') }}">Thêm</a>
+<a href="{{ route('loaisp.create') }}"><button type="button" class="btn btn-success ">Thêm</button></a>
 
 <table class="table">
     <thead>
@@ -11,7 +11,7 @@
             <th>Tên loại</th>
             <th>Ngày tạo</th>
             <th>Ngày sửa</th>
-            <th>Action</th>
+            <th>Tùy Chỉnh</th>
         </tr>
     </thead>
     <tbody>
@@ -22,12 +22,14 @@
                 <td>{{ $row->TENLOAISP}}</td>
                 <td>{{ $row->created_at}}</td>
                 <td>{{ $row->updated_at}}</td>
-                <td><a href="{{ route('loaisp.edit',$row->id) }}">Sửa </a></td>
-                <td><form action="{{ route('loaisp.destroy',$row->id) }}" method="POST">
-                @csrf
-                @method('delete')
-                <button type="submit">Xóa</button>
-                </form></td>
+                <td class="d-inline-flex">
+                    <a href="{{ route('loaisp.edit',$row->id) }}"><button type="button" class="btn btn-outline-info">Sửa</button> </a>
+                    <form action="{{ route('loaisp.destroy',$row->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </td>
+            
             </tr>
         @endforeach
     </tbody>

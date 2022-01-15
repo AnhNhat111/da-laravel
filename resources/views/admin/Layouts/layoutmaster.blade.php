@@ -1,4 +1,3 @@
-@extends('admin.Layouts.Includes.footer')
 <!DOCTYPE html>
 <html lang="en">
 
