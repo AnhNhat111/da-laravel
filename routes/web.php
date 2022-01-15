@@ -71,9 +71,7 @@ use Illuminate\Support\Facades\Route;
 // })->name('QLtaikhoan');
 
 
-// Route::get('/QLsanpham', function () {
-//     return view('admin.pages.QLsanpham');
-// })->name('QLsanpham');
+Route::get('/admin/pages/QLsanpham','Admin\SanphamController@index')->name('QLsanpham');
 
 // Route::get('/QLhoadonnhap', function () {
 //     return view('admin.pages.QLhoadonnhap');
