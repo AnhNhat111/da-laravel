@@ -1,9 +1,9 @@
 <div class="nk-sidebar">
     <div class="nk-nav-scroll">
         <ul class="metismenu" id="menu">
-            <li class="nav-label">Quản lý tài khoản</li>
+            <li class="nav-label">Trang Quản trị</li>
             <li>
-                <a class="has-arrow" href="{{ route('loaitaikhoan.index') }}" aria-expanded="false">
+                <a class="has-arrow" href="{{ route('quan-ly-tai-khoan.index') }}" aria-expanded="false">
                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Quản lý tài khoản</span>
                 </a>
 
