@@ -2,12 +2,17 @@
     <div class="nk-nav-scroll">
         <ul class="metismenu" id="menu">
             <li class="nav-label">Trang Quản trị</li>
-            <li>
-                <a class="has-arrow" href="{{ route('quan-ly-tai-khoan.index') }}" aria-expanded="false">
+            <li class="mega-menu mega-menu-sm">
+                <a class="has-arrow" href="" aria-expanded="false">
                     <i class="icon-speedometer menu-icon"></i><span class="nav-text">Quản lý tài khoản</span>
                 </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('quan-ly-tai-khoan.index') }}">Danh sách tài khoản</a></li>
+                    <li><a href="{{ route('loaitaikhoan.index') }}">Quản lý loại tài khoản</a></li>
 
+                </ul>
             </li>
+            
             <li class="mega-menu mega-menu-sm">
                 <a class="has-arrow" href="" aria-expanded="false">
                     <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Quản lý sản phẩm</span>
