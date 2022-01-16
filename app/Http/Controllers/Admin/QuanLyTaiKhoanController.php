@@ -60,6 +60,12 @@ class QuanLyTaiKhoanController extends Controller
             "TENHIENTHI" => 'required|string',
             "SODIENTHOAI" => 'required|string|unique:taikhoan,SODIENTHOAI',    
             "TRANGTHAI"=> '',
+        ],
+        [
+            "LOAITK_ID.required"=>'Loại Tài Khoản khoản hkhông được bỏ trống',
+            "EMAIL.required" => 'Tài khoản Email không được trùng',
+            "TENDANGNHAP.required" => 'Tên đăng nhập đã tồn tại',
+            "SODIENTHOAI.required" => 'Số điện thoại đã tồn tại' 
         ]);
         $create = $this->model::create([
             "LOAITK_ID" => $data['LOAITK_ID'],
@@ -68,7 +74,7 @@ class QuanLyTaiKhoanController extends Controller
             "MATKHAU" => bcrypt($data['MATKHAU']),
             "TENHIENTHI" => $data['TENHIENTHI'],
             "SODIENTHOAI" => $data['SODIENTHOAI'],     
-            "TRANGTHAI" => $data['TRANGTHAI'] ? 1 : 0,
+            "TRANGTHAI" => $data['TRANGTHAI'] = 1,
         ]);
         if ($create->save()) {
             return redirect()->route('quan-ly-tai-khoan.index');

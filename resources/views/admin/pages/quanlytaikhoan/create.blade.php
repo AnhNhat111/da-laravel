@@ -38,13 +38,13 @@
             <label for="my-input">Số điện thoại</label>
             <input id="my-input" required class="form-control" type="text" name="SODIENTHOAI">
             <div class="form-group">
-                <div class="form-check">
+                {{-- <div class="form-check">
                 <label class="form-check-label">
                 <input class="form-check-input" type="checkbox"
                 id="TRANGTHAI" name="TRANGTHAI"
                 />Trạng thái
                 </label>
-                </div>
+                </div> --}}
             </div>
             
         </div>
