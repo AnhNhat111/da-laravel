@@ -25,11 +25,11 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function index()
     {
-        $loaitk =  loaitaikhoan::all();
-        $data = $this->model->get();
+        $getData = DB::table('loaitaikhoan as ltk')
+				->rightJoin('taikhoan as tk', 'ltk.id','tk.LOAITK_ID')
+				->select('tk.id','ltk.TENLOAITAIKHOAN','tk.TENDANGNHAP','tk.TENHIENTHI','tk.SODIENTHOAI','tk.EMAIL','tk.TRANGTHAI')->get();
         return view('admin.pages.quanlytaikhoan.index', [
-            'data' => $data,
-            'loaitk' => $loaitk,
+            'tk'=> $getData
         ]);
     }
 
@@ -40,7 +40,8 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.quanlytaikhoan.create');
+        $loaitk = DB::table('loaitaikhoan')->select('id','TENLOAITAIKHOAN')->get();
+        return view('admin.pages.quanlytaikhoan.create')->with('loaitk',$loaitk);
     }
 
     /**
@@ -52,13 +53,19 @@ class QuanLyTaiKhoanController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            "LOAITK_ID" => 'required|string|unique:taikhoan,LOAITK_ID',
+            "LOAITK_ID"=>'',
             "EMAIL" => 'required|string|unique:taikhoan,EMAIL',
             "TENDANGNHAP" => 'required|string|unique:taikhoan,TENDANGNHAP',
             "MATKHAU" =>  'required|string',
             "TENHIENTHI" => 'required|string',
             "SODIENTHOAI" => 'required|string|unique:taikhoan,SODIENTHOAI',    
-            "TRANGTHAI" => 'integer'
+            "TRANGTHAI"=> '',
+        ],
+        [
+            "LOAITK_ID.required"=>'Loại Tài Khoản khoản hkhông được bỏ trống',
+            "EMAIL.required" => 'Tài khoản Email không được trùng',
+            "TENDANGNHAP.required" => 'Tên đăng nhập đã tồn tại',
+            "SODIENTHOAI.required" => 'Số điện thoại đã tồn tại' 
         ]);
         $create = $this->model::create([
             "LOAITK_ID" => $data['LOAITK_ID'],
@@ -67,7 +74,7 @@ class QuanLyTaiKhoanController extends Controller
             "MATKHAU" => bcrypt($data['MATKHAU']),
             "TENHIENTHI" => $data['TENHIENTHI'],
             "SODIENTHOAI" => $data['SODIENTHOAI'],     
-            "TRANGTHAI" => $data['TRANGTHAI'],
+            "TRANGTHAI" => $data['TRANGTHAI'] = 1,
         ]);
         if ($create->save()) {
             return redirect()->route('quan-ly-tai-khoan.index');
@@ -94,10 +101,11 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->model::find($id);
+        $loaitk = DB::table('loaitaikhoan')->select('id','TENLOAITAIKHOAN')->get();
+        $tk = DB::table('taikhoan')->select('id','TENDANGNHAP','TENHIENTHI','SODIENTHOAI','EMAIL','TRANGTHAI')->where('id',$id)->get();
         return view('admin.pages.quanlytaikhoan.edit', [
-            'id' => $id,
-            'data' =>$data
+            'loaitk' => $loaitk, 
+            'tk' => $tk
         ]);
     }
 
@@ -114,12 +122,12 @@ class QuanLyTaiKhoanController extends Controller
         if (!$loaitk) {
             return back()->withInput();
         }
-        $loaitk->LOAITK_ID = $request->LOAITK_ID;
+        $loaitk->LOAITK_ID = $request->TENLOAITAIKHOAN;
         $loaitk->EMAIL = $request->EMAIL;
         $loaitk->TENDANGNHAP = $request->TENDANGNHAP;
         $loaitk->TENHIENTHI = $request->TENHIENTHI;
         $loaitk->SODIENTHOAI = $request->SODIENTHOAI;
-        $loaitk->TRANGTHAI = $request->TRANGTHAI;
+        $loaitk->TRANGTHAI = $request->TRANGTHAI ? 1 : 0;
         if ($loaitk->save()) {
             return redirect()->route('quan-ly-tai-khoan.index');
         }

@@ -15,7 +15,7 @@ class LoaiSpTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('loaisp')->insert([
+        DB::table('loaisanpham')->insert([
             'TENLOAISP' => 'Áo',
         ]);
     }
