@@ -22,7 +22,7 @@
                 <td>{{ $row->updated_at}}</td>
 
                 <td class="d-inline-flex">
-                    <a href="{{ route('loaisp.edit',$row->id) }}"><button type="button" class="btn btn-primary btn-sm">Sửa</button> </a>
+                    <a href="{{ route('loaisp.edit',$row->id) }}"><button type="button" class="btn btn-outline-info btn-sm">Sửa</button> </a>
                     <form action="{{ route('loaisp.destroy',$row->id) }}" method="POST">
                         @csrf
                         @method('delete')
