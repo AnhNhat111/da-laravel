@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoaiSanPhamController;
 use App\Http\Controllers\Admin\LoaiTaiKhoanController;
+use App\Http\Controllers\Admin\QuanLyTaiKhoanController;
 
 Route::group(['prefix' => '/'], function () {
 
@@ -18,10 +19,11 @@ Route::group(['prefix' => '/'], function () {
     Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::get('/', function () {
-            return view('admin.pages.home');
+            return view('admin.pages.login.home');
         })->name('admin.dashboard');
 
         Route::resource('loaisp', LoaiSanPhamController::class);
         Route::resource('loaitaikhoan', LoaiTaiKhoanController::class);
+        Route::resource('quan-ly-tai-khoan', QuanLyTaiKhoanController::class);
     });
 });

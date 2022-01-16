@@ -13,4 +13,9 @@ class loaitaikhoan extends Model
     ];
     protected $primarykey = 'id';
     protected $table ='loaitaikhoan';
+
+    public function loaiTk()
+    {
+        return $this->hasMany(taikhoan::class,'LOAITK_ID','id');
+    }
 }
