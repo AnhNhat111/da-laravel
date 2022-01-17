@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\sanpham;
+use Sanpham as GlobalSanpham;
+
 class SanPhamController extends Controller
 {
     /**
@@ -30,6 +32,7 @@ class SanPhamController extends Controller
     public function create()
     {
         //
+        return view('/admin/pages/Themsanpham');
 
     }
 
@@ -42,6 +45,18 @@ class SanPhamController extends Controller
     public function store(Request $request)
     {
         //
+        $new_pro = new sanpham;
+        $new_pro->TENSP = $request->TENSP;
+        $new_pro->MOTA = $request->MOTA;
+        $new_pro->GIABAN = $request->HINHANH;
+        $new_pro->COLOR = $request->COLOR;
+        $new_pro->SIZE = $request->SIZE;
+        $new_pro->HINHANH = $request->HINHANH;
+        $new_pro->SLTK = $request->SLTK;
+        $new_pro->LOAISP_ID = $request->LOAISP_ID;
+        $new_pro->save();
+
+        return redirect()->action('Admin\SanPhamController@create');
     }
 
     /**
