@@ -1,5 +1,5 @@
 @extends('admin.Layouts.layoutmaster')
-
+@
 @section('body')
 <h1>Đây là trang quản lý sản phẩm</h1>
 <table class="table">

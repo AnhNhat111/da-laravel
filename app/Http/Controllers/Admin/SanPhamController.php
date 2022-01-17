@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\sanpham;
 class SanPhamController extends Controller
 {
     /**
@@ -19,7 +19,7 @@ class SanPhamController extends Controller
         $pro = DB::table('sanpham')->select('*');
         $pro = $pro -> get();
 
-        return view('/admin/pages/QLsanpham',compact('pro'));
+        return view('admin.pages.QLsanpham',compact('pro'));
     }
 
     /**
@@ -30,6 +30,7 @@ class SanPhamController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
