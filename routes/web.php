@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\LoaiSanPhamController;
 use App\Models\loaisanpham;
 use Facade\FlareClient\View;
@@ -71,7 +72,7 @@ use Illuminate\Support\Facades\Route;
 // })->name('QLtaikhoan');
 
 
-Route::get('/admin/pages/QLsanpham','Admin\SanphamController@index')->name('QLsanpham');
+Route::get('admin/pages/QLsanpham',[SanPhamController::class,'index'])->name('QLsanpham');
 
 // Route::get('/QLhoadonnhap', function () {
 //     return view('admin.pages.QLhoadonnhap');
