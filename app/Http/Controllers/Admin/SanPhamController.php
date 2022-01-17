@@ -18,8 +18,8 @@ class SanPhamController extends Controller
         //
         $pro = DB::table('sanpham')->select('*');
         $pro = $pro -> get();
-
-        return view('admin.pages.QLsanpham',compact('pro'));
+        $pageName = 'Quản lý sản phẩm';
+        return view('admin.pages.QLsanpham',compact('pro','pageName'));
     }
 
     /**

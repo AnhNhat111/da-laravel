@@ -1,7 +1,7 @@
 @extends('admin.Layouts.layoutmaster')
-@
+
 @section('body')
-<h1>Đây là trang quản lý sản phẩm</h1>
+<h1>{{ $pageName }}</h1>
 <table class="table">
     <thead>
         <tr>
