@@ -15,6 +15,8 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
 
+    Route::get('admin/pages/QLsanpham',[Admin\SanPhamController::class,'index'])->name('QLsanpham');
+
     Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::get('/', function () {

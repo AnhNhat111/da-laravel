@@ -4,7 +4,7 @@
 <h1>Đây là trang thêm sản phẩm</h1>
 <div class="row">
     <div class="col-md-4">
-        <form method="post" action="">
+        <form method="post" action="/">
             <div class="form-group">
                 <label for="control label">Mã sản phẩm</label>
                 <input class="form-control">
