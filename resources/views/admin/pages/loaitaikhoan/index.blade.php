@@ -7,7 +7,7 @@
     <thead>
         <tr>
             <th>STT</th>
-            <th>Tên loại ài khoản</th>
+            <th>Tên loại tài khoản</th>
             <th>Ngày tạo</th>
             <th>Ngày sửa</th>
             <th>Tùy Chỉnh</th>
@@ -21,11 +21,12 @@
                 <td>{{ $row->created_at}}</td>
                 <td>{{ $row->updated_at}}</td>
                 <td class="d-inline-flex">
-                    <a href="{{ route('loaitaikhoan.edit',$row->id) }}"><button type="button" class="btn btn-outline-info">Sửa</button> </a>
+                    <a href="{{ route('loaitaikhoan.edit',$row->id) }}"><button type="button" class="btn btn-outline-info btn-sm">Sửa</button> </a>
                     <form action="{{ route('loaitaikhoan.destroy',$row->id) }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger">Xóa</button>
+                        @csrf
+                        @method('delete')
+                        <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

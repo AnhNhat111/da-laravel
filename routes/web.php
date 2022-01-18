@@ -6,7 +6,7 @@ use App\Models\loaisanpham;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use PHPUnit\TextUI\XmlConfiguration\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,45 +19,49 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return View('user.pages.index');
-// })->name('index');
+Route::group(['prefix' => '/'],function(){
 
-// Route::get('/cart', function () {
-//     return View('user.pages.cart');
-// })->name('cart');
+    Route::get('/', function () {
+        return View('user.pages.index');
+    })->name('index');
 
-// Route::get('/product', function () {
-//     return View('user.pages.product');
-// })->name('product');
+    Route::get('cart', function () {
+        return View('user.pages.cart');
+    })->name('cart');
 
-// Route::get('/product-detail', function () {
-//     return View('user.pages.product-detail');
-// })->name('product-detail');
+    Route::get('product', function () {
+        return View('user.pages.product');
+    })->name('product');
+    
+    Route::get('product-detail', function () {
+        return View('user.pages.product-detail');
+    })->name('product-detail');
+    
+    Route::get('checkout', function () {
+        return View('user.pages.checkout');
+    })->name('checkout');
+    
+    Route::get('account', function () {
+        return View('user.pages.account');
+    })->name('account');
+    
+    Route::get('about', function () {
+        return View('user.pages.about');
+    })->name('about');
+    
+    Route::get('contact', function () {
+        return View('user.pages.contact');
+    })->name('contact');
+    
+    Route::get('signin', function () {
+        return View('user.pages.signin');
+    })->name('signin');
+    
+    Route::get('signup', function () {
+        return View('user.pages.signup');
+    })->name('signup');
+});
 
-// Route::get('/checkout', function () {
-//     return View('user.pages.checkout');
-// })->name('checkout');
-
-// Route::get('/account', function () {
-//     return View('user.pages.account');
-// })->name('account');
-
-// Route::get('/about', function () {
-//     return View('user.pages.about');
-// })->name('about');
-
-// Route::get('/contact', function () {
-//     return View('user.pages.contact');
-// })->name('contact');
-
-// Route::get('/signin', function () {
-//     return View('user.pages.signin');
-// })->name('signin');
-
-// Route::get('/signup', function () {
-//     return View('user.pages.signup');
-// })->name('signup');
 
 // Route::get('/Dangnhap', function () {
 //     return view('admin.pages.Dangnhap');
@@ -94,6 +98,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('admin.pages.Dangky');
 // })->name('Dangky');
 
-Route::resource('loaisp', LoaiSanPhamController::class);
 
 // Auth::routes();

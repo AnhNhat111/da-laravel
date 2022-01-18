@@ -18,12 +18,12 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('admin.pages.Dangnhap');
+        return view('admin.pages.login.Dangnhap');
     }
 
     public function index()
     {
-        return view('admin.pages.home');
+        return view('admin.pages.login.home');
     }
 
     public function login(Request $request)

@@ -7,9 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Trang admin</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/admin/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/admin/images/favicon.png') }}">
     <!-- Custom Stylesheet -->
-    <link href="assets/admin/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet">
 
 </head>
 

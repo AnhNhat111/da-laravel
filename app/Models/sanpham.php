@@ -18,6 +18,7 @@ class sanpham extends Model
         'SLTK',
         'COLOR',
         'SIZE'
+        
     ];
     protected $primarykey = 'id';
     protected $table = 'sanpham';
