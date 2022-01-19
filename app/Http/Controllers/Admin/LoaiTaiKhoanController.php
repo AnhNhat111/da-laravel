@@ -48,7 +48,7 @@ class LoaiTaiKhoanController extends Controller
     public function store(Request $request)
     {
         $data = [
-            "TENLOAITAIKHOAN" => $request->TENLOAITAIKHOAN
+            "TENLOAITAIKHOAN" =>$request->TENLOAITAIKHOAN
         ];
         $tk = $this->model::create($data);
         if ($tk->save()) {

@@ -11,14 +11,11 @@ class sanpham extends Model
     protected $fillable = [
         'LOAISP_ID',
         'TENSP',
-        'TRANGTHAI',
         'HINHANH',
         'MOTA',
         'GIABAN',
         'SLTK',
-        'COLOR',
-        'SIZE'
-        
+        'TRANGTHAI',
     ];
     protected $primarykey = 'id';
     protected $table = 'sanpham';

@@ -29,8 +29,6 @@
                 </select>
             <label for="my-input">Email</label>
             <input id="my-input" required class="form-control" type="text" name="EMAIL">
-            <label for="my-input">Tên đăng nhập</label>
-            <input id="my-input" required class="form-control" type="text" name="TENDANGNHAP">
             <label for="my-input">Mật khẩu</label>
             <input id="my-input" required class="form-control" type="text" name="MATKHAU">
             <label for="my-input">Tên Hiển Thị</label>

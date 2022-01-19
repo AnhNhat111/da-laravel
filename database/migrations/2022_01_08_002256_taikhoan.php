@@ -15,12 +15,12 @@ class Taikhoan extends Migration
     {
         Schema::create('taikhoan',function (Blueprint $table) {
             $table->Increments('id');
-            $table->string('TENDANGNHAP');
-            $table->string('MATKHAU');
+            $table->string('password');
             $table->string('TENHIENTHI');
             $table->integer('SODIENTHOAI');
-            $table->string('EMAIL');
+            $table->string('email');
             $table->integer('TRANGTHAI');
+            $table->string('DIACHI');
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
 

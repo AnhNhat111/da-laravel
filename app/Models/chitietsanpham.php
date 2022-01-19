@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class taikhoan extends Model
+class chitietsanpham extends Model
 {
     use HasFactory;
+    use HasFactory;
     protected $fillable = [
-        'password',
-        'TENHIENTHI',
-        'SODIENTHOAI',
-        'email',
+        'SANPHAM_ID',
+        'MASP', // phân biệt các màu, và size
         'TRANGTHAI',
-        'LOAITK_ID',
-        'DIACHI'
+        'GIABAN',
+        'COLOR',
+        'SIZE'
     ];
     protected $primarykey = 'id';
-    protected $table ='taikhoan';
+    protected $table = 'ctsp';
 }
