@@ -18,8 +18,7 @@
                     <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Quản lý sản phẩm</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="">Quản lý danh sách sản phẩm</a></li>
-                    <li><a href="">Thêm sản phẩm</a></li>
+                    <li><a href="{{ route('QLsanpham.index') }}">Quản lý danh sách sản phẩm</a></li>
                     <li><a href="{{ route('loaisp.index') }}">Quản lý loại sản phẩm</a></li>
 
                 </ul>

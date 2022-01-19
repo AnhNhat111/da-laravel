@@ -25,10 +25,11 @@
     <thead>
         <tr style="align-items: center">
             <th>Loại Tài Khoản</th>
-            <th>Username</th>
+           
             <th>Tên Hiển Thị</th>
             <th>SDT</th>    
             <th>Email</th>
+            <th>Địa chỉ</th>
             <th>Trạng thái</th>
             <th>Tình trạng</th>
         </tr>
@@ -38,10 +39,11 @@
         @foreach ($tk as $user )
             <tr>
                 <td>{{ $user->TENLOAITAIKHOAN }}</td>
-                <td>{{ $user->TENDANGNHAP }}</td>
+                
                 <td>{{ $user->TENHIENTHI }}</td>
                 <td>{{ $user->SODIENTHOAI }}</td>
-                <td>{{ $user->EMAIL}}</td>
+                <td>{{ $user->email}}</td>
+                <td>{{ $user->DIACHI}}</td>
                 {{-- <td>{{ $user->TRANGTHAI }}</td> --}}
                 <td class="text-center">
                     @if ($user->TRANGTHAI == 1)
@@ -66,6 +68,39 @@
                 </td>
             </tr>
         @endforeach
+        @foreach ($ad as $admin )
+        <tr>
+            <td>{{ $admin->TENLOAITAIKHOAN }}</td>
+            
+            <td>{{ $admin->TENHIENTHI }}</td>
+            <td>{{ $admin->SODIENTHOAI }}</td>
+            <td>{{ $admin->email}}</td>
+            <td>{{ $admin->DIACHI   }}</td>
+            {{-- <td>{{ $user->TRANGTHAI }}</td> --}}
+            <td class="text-center">
+                @if ($admin->TRANGTHAI == 1)
+                
+                <span class="badge badge-
+                success">Yes</span>
+                
+                @else
+                
+                <span class="badge badge-
+                danger">No</span>
+                
+                @endif
+                </td>
+            <td class="d-inline-flex">
+                <a href="{{ route('quan-ly-tai-khoan.edit',$admin->id) }}"><button type="button" class="btn btn-primary btn-sm">Sửa</button> </a>
+                <form action="{{ route('quan-ly-tai-khoan.destroy',$admin->id) }}" method="POST">
+                    @csrf
+                    @method('delete')
+                    <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+       
     </tbody>
 </table>
 @endsection

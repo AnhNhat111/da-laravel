@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoaiSanPhamController;
 use App\Http\Controllers\Admin\LoaiTaiKhoanController;
 use App\Http\Controllers\Admin\QuanLyTaiKhoanController;
+use App\Http\Controllers\Admin\SanPhamController;
 
 Route::group(['prefix' => '/'], function () {
 
@@ -16,6 +17,8 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
 
+   
+
     Route::group(['middleware' => ['auth:admin']], function () {
 
         Route::get('/', function () {
@@ -25,5 +28,9 @@ Route::group(['prefix' => '/'], function () {
         Route::resource('loaisp', LoaiSanPhamController::class);
         Route::resource('loaitaikhoan', LoaiTaiKhoanController::class);
         Route::resource('quan-ly-tai-khoan', QuanLyTaiKhoanController::class);
+        Route::resource('QLsanpham', SanPhamController::class);
     });
+    // Route::get('QLsanpham',[SanPhamController::class,'index'])->name('QLsanpham');
+
+    // Route::get('Themsanpham', [SanPhamController::class,'create'])->name('Themsanpham');
 });
