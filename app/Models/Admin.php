@@ -17,6 +17,7 @@ class admin extends Authenticatable
         'email',
         'TRANGTHAI',
         'LOAITK_ID',
+        'ANH',
         'DIACHI'
     ];
     protected $primarykey = 'id';

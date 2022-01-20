@@ -21,6 +21,7 @@ class CreateAdminsTable extends Migration
             $table->string('email');    
             $table->integer('TRANGTHAI');
             $table->string('DIACHI');
+            $table->string('ANH');
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
 

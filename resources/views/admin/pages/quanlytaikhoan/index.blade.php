@@ -25,11 +25,11 @@
     <thead>
         <tr style="align-items: center">
             <th>Loại Tài Khoản</th>
-           
             <th>Tên Hiển Thị</th>
             <th>SDT</th>    
             <th>Email</th>
             <th>Địa chỉ</th>
+            <th>Ảnh</th>
             <th>Trạng thái</th>
             <th>Tình trạng</th>
         </tr>
@@ -44,6 +44,9 @@
                 <td>{{ $user->SODIENTHOAI }}</td>
                 <td>{{ $user->email}}</td>
                 <td>{{ $user->DIACHI}}</td>
+                <td>
+                    <img alt="{{ $user->TENHIENTHI }}" src={{ asset('upload/avatar/' . $user->ANH  ) }} style="text-align: center; vertical-align: middle; width: 60px;">
+                </td>
                 {{-- <td>{{ $user->TRANGTHAI }}</td> --}}
                 <td class="text-center">
                     @if ($user->TRANGTHAI == 1)
@@ -75,7 +78,10 @@
             <td>{{ $admin->TENHIENTHI }}</td>
             <td>{{ $admin->SODIENTHOAI }}</td>
             <td>{{ $admin->email}}</td>
-            <td>{{ $admin->DIACHI   }}</td>
+            <td>{{ $admin->DIACHI}}</td>
+            <td>
+                <img alt="{{ $admin->TENHIENTHI }}" src={{ asset('upload/avatar/' . $admin->ANH  ) }} style="text-align: center; vertical-align: middle; width: 60px;">
+            </td>
             {{-- <td>{{ $user->TRANGTHAI }}</td> --}}
             <td class="text-center">
                 @if ($admin->TRANGTHAI == 1)

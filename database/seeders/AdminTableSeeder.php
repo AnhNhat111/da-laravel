@@ -25,7 +25,8 @@ class AdminTableSeeder extends Seeder
                    'TENHIENTHI' => $faker->firstName(),
                    'SODIENTHOAI' => '0123456789',     
                    'TRANGTHAI' => 1,
-                   'DIACHI' => $faker->address()
+                   'DIACHI' => $faker->address(),
+                   'ANH' => 'images.png'
                ]);
          }
     }
