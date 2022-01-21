@@ -15,6 +15,7 @@ class taikhoan extends Model
         'email',
         'TRANGTHAI',
         'LOAITK_ID',
+        'ANH',
         'DIACHI'
     ];
     protected $primarykey = 'id';

@@ -2,16 +2,16 @@
 
 @section('body')
 <h1>Đây là trang sửa tài khoản</h1>
-@if ($loaitk[0]->id == 3)
-<form action="{{ route('quan-ly-tai-khoan.update',$tk[0]->id) }}" method="post">
+@if ( count($tk)==1 ) 
+<form action="{{ route('quan-ly-tai-khoan.update',$tk[0]->id) }}" method="post" enctype="multipart/form-data" >
     @csrf
     @method('put')
     <div class="form-group">
         <label for="loaitaikhoan">Loại Tài Khoản</label>
-            <select class="form-control" id="TENLOAITAIKHOAN" name="TENLOAITAIKHOAN" required>
+            <select class="form-control" id="TENLOAITAIKHOAN" name="TENLOAITAIKHOAN" required >
                 <option value="">--Loại Tài Khoản --</option>
                 @foreach($loaitk as $ltk)
-                    <option value="{!! $ltk->id !!}" {!! ($tk[0]->id == $ltk->id) ? 'selected="selected"' : null !!}>{!! $ltk->TENLOAITAIKHOAN !!}</option>
+                    <option value="{!! $ltk->id !!}" {!! ($tk[0]->LOAITK_ID == $ltk->id) ? 'selected="selected"' : null !!}>{!! $ltk->TENLOAITAIKHOAN !!}</option>
                 @endforeach
             </select>
             <label for="my-input">Email</label>
@@ -22,6 +22,8 @@
             <input id="my-input" required class="form-control" type="text" name="TENHIENTHI" value="{{ $tk[0]->TENHIENTHI }}">
             <label for="my-input">Số điện thoại</label>
             <input id="my-input" required class="form-control" type="text" name="SODIENTHOAI" value="{{ $tk[0]->SODIENTHOAI }}">
+            <label for="Ảnh">Chọn ảnh</label>
+            <input type="file" class="form-control" id="ANH"  name="ANH"/>
             {{-- <label for="my-input">Trạng thái</label>
             <input id="my-input" required class="form-control" type="text" name="TRANGTHAI" value="{{ $tk[0]->TRANGTHAI }}"> --}}
             <div class="form-group">
@@ -38,17 +40,17 @@
         <button name="submit" id="" class="btn btn-primary" type="submit">Sửa</button>
 </form>   
 @else
-<form action="{{ route('quan-ly-tai-khoan.update',$ad[0]->id) }}" method="post">
+<form action="{{ route('quan-ly-tai-khoan.update',$ad[0]->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
     <div class="form-group">
-        {{-- <label for="loaitaikhoan">Loại Tài Khoản</label>
-            <select class="form-control" id="TENLOAITAIKHOAN" name="TENLOAITAIKHOAN" required>
+        <label for="loaitaikhoan">Loại Tài Khoản</label>
+            <select class="form-control" id="TENLOAITAIKHOAN" name="TENLOAITAIKHOAN" required >
                 <option value="">--Loại Tài Khoản --</option>
                 @foreach($loaitk as $ltk)
-                    <option value="{!! $ltk->id !!}" {!! ($ad[0]->id == $ltk->id) ? 'selected="selected"' : null !!}>{!! $ltk->TENLOAITAIKHOAN !!}</option>
+                    <option value="{!! $ltk->id !!}" {!! ($ad[0]->LOAITK_ID == $ltk->id) ? 'selected="selected"' : null !!}>{!! $ltk->TENLOAITAIKHOAN !!}</option>
                 @endforeach
-            </select> --}}
+            </select>
             <label for="my-input">Email</label>
             <input id="my-input" required class="form-control" type="text" name="email" value="{{ $ad[0]->email }}">
             <label for="my-input">Địa Chỉ</label>
@@ -57,6 +59,8 @@
             <input id="my-input" required class="form-control" type="text" name="TENHIENTHI" value="{{ $ad[0]->TENHIENTHI }}">
             <label for="my-input">Số điện thoại</label>
             <input id="my-input" required class="form-control" type="text" name="SODIENTHOAI" value="{{ $ad[0]->SODIENTHOAI }}">
+            <label for="Ảnh">Chọn hình mới</label>
+            <input type="file" class="form-control" id="ANH"  name="ANH"/>
             {{-- <label for="my-input">Trạng thái</label>
             <input id="my-input" required class="form-control" type="text" name="TRANGTHAI" value="{{ $tk[0]->TRANGTHAI }}"> --}}
             <div class="form-group">

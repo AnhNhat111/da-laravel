@@ -17,7 +17,7 @@
 		</button>
 	</div>
 @endif
-    <form action="{{ route('quan-ly-tai-khoan.store') }}" method="post">
+    <form action="{{ route('quan-ly-tai-khoan.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
                 <label for="LOAITK_ID">Loại Tài Khoản</label>
@@ -35,6 +35,10 @@
             <input id="my-input" required class="form-control" type="text" name="TENHIENTHI">
             <label for="my-input">Số điện thoại</label>
             <input id="my-input" required class="form-control" type="text" name="SODIENTHOAI">
+            <label for="my-input">Địa chỉ</label>
+            <input id="my-input" required class="form-control" type="text" name="DIACHI">
+            <label for="my-input">Ảnh</label>
+            <input id="my-input" required class="form-control" type="file" name="ANH">
             <div class="form-group">
                 {{-- <div class="form-check">
                 <label class="form-check-label">
