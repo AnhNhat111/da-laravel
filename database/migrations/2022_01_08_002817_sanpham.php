@@ -22,8 +22,6 @@ class Sanpham extends Migration
             $table->string('MOTA');
             $table->integer('GIABAN');
             $table->integer('SLTK');
-            $table->string('COLOR');
-            $table->string('SIZE');
             $table->timestamps();
 
             $table->foreign('LOAISP_ID')->references('id')->on('loaisanpham');

@@ -17,7 +17,6 @@ class CreateChitietsanphamsTable extends Migration
             $table->increments('id');
             $table->integer('SANPHAM_ID')->unsigned();
             $table->string('MASP');
-            $table->integer('GIABAN');
             $table->string('COLOR');
             $table->string('SIZE');
             $table->timestamps();

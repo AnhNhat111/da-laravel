@@ -72,7 +72,7 @@ class QuanLyTaiKhoanController extends Controller
                 "EMAIL.required" => 'Tài khoản Email không được trùng',
                 "SODIENTHOAI.required" => 'Số điện thoại đã tồn tại' 
             ]);
-            $gethinhthe = '';
+            $getImages = '';
             if($request->hasFile('ANH')){
                 //Hàm kiểm tra dữ liệu
                 $this->validate($request, 
@@ -88,10 +88,10 @@ class QuanLyTaiKhoanController extends Controller
                 );
                 
                 //Lưu hình ảnh vào thư mục public/upload/hinhthe
-                $hinhthe = $request->file('ANH');
-                $gethinhthe = time().'_'.$hinhthe->getClientOriginalName();
+                $anh = $request->file('ANH');
+                $getImages = time().'_'.$anh->getClientOriginalName();
                 $destinationPath = public_path('upload/avatar');
-                $hinhthe->move($destinationPath, $gethinhthe);
+                $anh->move($destinationPath, $getImages);
             }
            
             $create = admin::create([
@@ -101,7 +101,7 @@ class QuanLyTaiKhoanController extends Controller
                 "TENHIENTHI" => $data['TENHIENTHI'],
                 "SODIENTHOAI" => $data['SODIENTHOAI'], 
                 "DIACHI" => $data['DIACHI'],    
-                "ANH" => $gethinhthe, 
+                "ANH" => $getImages, 
                 "TRANGTHAI" => $data['TRANGTHAI'] = 1,
             ]);
             
@@ -124,7 +124,7 @@ class QuanLyTaiKhoanController extends Controller
                 "EMAIL.required" => 'Tài khoản Email không được trùng',
                 "SODIENTHOAI.required" => 'Số điện thoại đã tồn tại' 
             ]);
-            $gethinhthe = '';
+            $getImages = '';
             if($request->hasFile('ANH')){
                 //Hàm kiểm tra dữ liệu
                 $this->validate($request, 
@@ -140,10 +140,10 @@ class QuanLyTaiKhoanController extends Controller
                 );
                 
                 //Lưu hình ảnh vào thư mục public/upload/hinhthe
-                $hinhthe = $request->file('ANH');
-                $gethinhthe = time().'_'.$hinhthe->getClientOriginalName();
+                $anh = $request->file('ANH');
+                $getImages = time().'_'.$anh->getClientOriginalName();
                 $destinationPath = public_path('upload/avatar');
-                $hinhthe->move($destinationPath, $gethinhthe);
+                $anh->move($destinationPath, $getImages);
             }
             $create = $this->model::create([
                 "LOAITK_ID" => $data['LOAITK_ID'],
@@ -152,7 +152,7 @@ class QuanLyTaiKhoanController extends Controller
                 "TENHIENTHI" => $data['TENHIENTHI'],
                 "SODIENTHOAI" => $data['SODIENTHOAI'],    
                 "DIACHI" => $data['DIACHI'], 
-                "ANH" => $gethinhthe,  
+                "ANH" => $getImages,  
                 "TRANGTHAI" => $data['TRANGTHAI'] = 1,
             ]);
         }
@@ -203,10 +203,9 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+       
         if($request->TENLOAITAIKHOAN > 2){
             $loaitk = $this->model::find($id);
-            
             if (!$loaitk) {
                 return back()->withInput();
             }
@@ -216,6 +215,34 @@ class QuanLyTaiKhoanController extends Controller
             $loaitk->SODIENTHOAI = $request->SODIENTHOAI;
             $loaitk->DIACHI = $request->DIACHI;
             $loaitk->TRANGTHAI = $request->TRANGTHAI ? 1 : 0;
+
+            if($request->hasFile('ANH')){
+                $this->validate($request, 
+                    [
+                        'ANH' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                    ],			
+                    [
+                        'ANH.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                        'ANH.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                    ]
+                );
+                
+                //Xóa file hình thẻ cũ
+                $getImages = DB::table('taikhoan')->select('ANH')->where('id',$id)->get();
+                if($getImages[0]->ANH != '' && file_exists(public_path('upload/avatar/'.$getImages[0]->ANH)))
+                {  
+                    unlink(public_path('upload/avatar/'.$getImages[0]->ANH));
+                }
+                
+                //Lưu file hình thẻ mới
+                $anh = $request->file('ANH');
+                $getImage = time().'_'.$anh->getClientOriginalName();
+                $destinationPath = public_path('upload/avatar');
+                $anh->move($destinationPath, $getImage);
+                $updateImages = DB::table('taikhoan')->where('id', $id)->update([
+                    'ANH' => $getImage
+                ]);
+            }
         }else{
             $loaitk = admin::find($id);
             if (!$loaitk) {
@@ -227,6 +254,34 @@ class QuanLyTaiKhoanController extends Controller
             $loaitk->SODIENTHOAI = $request->SODIENTHOAI;
             $loaitk->DIACHI = $request->DIACHI;
             $loaitk->TRANGTHAI = $request->TRANGTHAI ? 1 : 0;
+            if($request->hasFile('ANH')){
+                $this->validate($request, 
+                    [
+                        'ANH' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                    ],			
+                    [
+                        'ANH.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                        'ANH.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                    ]
+                );
+                
+                //Xóa file hình thẻ cũ
+                $getImages = DB::table('admin')->select('ANH')->where('id',$id)->get();
+                if($getImages[0]->ANH != '' && file_exists(public_path('upload/avatar/'.$getImages[0]->ANH)))
+                {  
+                    unlink(public_path('upload/avatar/'.$getImages[0]->ANH));
+                }
+                
+                //Lưu file hình thẻ mới
+                $anh = $request->file('ANH');
+                $getImage = time().'_'.$anh->getClientOriginalName();
+                $destinationPath = public_path('upload/avatar');
+                $anh->move($destinationPath, $getImage);
+                $updateImages = DB::table('admin')->where('id', $id)->update([
+                    'ANH' => $getImage
+                ]);
+            }
+           
         }
         if ($loaitk->save()) {
             return redirect()->route('quan-ly-tai-khoan.index');
