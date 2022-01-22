@@ -203,7 +203,6 @@ class QuanLyTaiKhoanController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
         if($request->TENLOAITAIKHOAN > 2){
             $loaitk = $this->model::find($id);
             if (!$loaitk) {
@@ -228,7 +227,7 @@ class QuanLyTaiKhoanController extends Controller
                 );
                 
                 //Xóa file hình thẻ cũ
-                $getImages = DB::table('taikhoan')->select('ANH')->where('id',$id)->get();
+                $getImages = DB::table('admin')->select('ANH')->where('id',$id)->get();
                 if($getImages[0]->ANH != '' && file_exists(public_path('upload/avatar/'.$getImages[0]->ANH)))
                 {  
                     unlink(public_path('upload/avatar/'.$getImages[0]->ANH));
@@ -239,7 +238,7 @@ class QuanLyTaiKhoanController extends Controller
                 $getImage = time().'_'.$anh->getClientOriginalName();
                 $destinationPath = public_path('upload/avatar');
                 $anh->move($destinationPath, $getImage);
-                $updateImages = DB::table('taikhoan')->where('id', $id)->update([
+                $updateImages = DB::table('admin')->where('id', $id)->update([
                     'ANH' => $getImage
                 ]);
             }

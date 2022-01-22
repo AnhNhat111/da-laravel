@@ -11,10 +11,11 @@ class sanpham extends Model
     protected $fillable = [
         'LOAISP_ID',
         'TENSP',
+        'MASP',// phân biệt các màu, và size
         'HINHANH',
         'MOTA',
         'GIABAN',
-        'SLTK',
+        
         'TRANGTHAI',
     ];
     protected $primarykey = 'id';

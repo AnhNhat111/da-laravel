@@ -2,7 +2,7 @@
 
 @section('body')
 
-<form action="{{ route('QLsanpham.update',$sp[0]->id) }}" method="post">
+<form action="{{ route('QLsanpham.update',$sp[0]->id) }}" method="post" enctype="multipart/form-data">
     @csrf
     @method('put')
     <div class="form-group">
@@ -22,18 +22,10 @@
         <label for="my-input">Mô tả</label>
         <input id="my-input" required class="form-control" type="text" name="MOTA" value="{{ $sp[0]->MOTA }}">
 
-        <label for="my-input">Hình ảnh</label>
-        <input id="my-input" required class="form-control" type="text" name="HINHANH" value="{{ $sp[0]->HINHANH }}">
+        <label for="Ảnh">Chọn ảnh</label>
+        <input type="file" class="form-control" id="ANH"  name="HINHANH"/>
 
-        <label for="my-input">Màu</label>
-        <input id="my-input" required class="form-control" type="text" name="COLOR" value="{{ $sp[0]->COLOR }}">
-
-        <label for="my-input">SLTK</label>
-        <input id="my-input" required class="form-control" type="text" name="SLTK" value="{{ $sp[0]->SLTK }}">
-
-        <label for="my-input">Kích cỡ</label>
-        <input id="my-input" required class="form-control" type="text" name="SIZE" value="{{ $sp[0]->SIZE }}">
-
+       
 
             <div class="form-group">
                 <div class="form-check">

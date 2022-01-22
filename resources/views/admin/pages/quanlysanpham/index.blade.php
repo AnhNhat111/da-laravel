@@ -7,12 +7,10 @@
     <thead>
         <tr>
             <th>Loại sản phẩm</th>
-            <th>Tên</th>
+            <th>Mã sản phẩm</th>
+            <th>Tên sản phẩm</th>
             <th>Mô tả</th>
-            <th>Màu</th>
-            <th>Size</th>
             <th>Giá</th>
-            <th>Số lượng tồn</th>
             <th>Hình ảnh</th>
             <th>Trạng thái</th>
         </tr>
@@ -21,34 +19,45 @@
         @foreach ($pro as $row)
         <tr>
             <th>{{$row->TENLOAISP}}</th>
+            <th>{{$row->MASP}}</th>
             <th>{{$row->TENSP}}</th>
             <th>{{$row->MOTA}}</th>
-            <th>{{$row->COLOR}}</th>
-            <th>{{$row->SIZE}}</th>
             <th>{{$row->GIABAN}}</th>
-            <th>{{$row->SLTK}}</th>
-            <th>{{$row->HINHANH}}</th>
-            <td class="text-center">
-                @if ($row->TRANGTHAI == 1)
-                
-                <span class="badge badge-
-                success">Yes</span>
-                
-                @else
-                
-                <span class="badge badge-
-                danger">No</span>
-                
-                @endif
-                </td>
+            <th>
+                <img alt="{{ $row->MASP }}" src={{ asset('assets/user/img/product/'.$row->HINHANH ) }} style="text-align: center; vertical-align: middle; width: 60px;">
+            </th>
+            <th>
+                <td class="text-center">
+                    @if ($row->TRANGTHAI == 1)
+                    
+                    <span class="badge badge-
+                    success">Yes</span>
+                    
+                    @else
+                    
+                    <span class="badge badge-
+                    danger">No</span>
+                    
+                    @endif
+                 </td>
+            </th>
+           <th>
             <td class="d-inline-flex">
-                <a href="{{ route('QLsanpham.edit',$row->id) }}"><button type="button" class="btn btn-primary btn-sm">Sửa</button> </a>
-                <form action="{{ route('QLsanpham.destroy',$row->id) }}" method="POST">
-                    @csrf
-                    @method('delete')
-                    <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
-                </form>
+                <table>
+                    <td>
+                        <a href="{{ route('chi-tiet-san-pham.show',$row->id) }}"><button type="button" class="btn btn-primary btn-sm">Chi tiết</button> </a>
+                        <a href="{{ route('QLsanpham.edit',$row->id) }}"><button type="button" class="btn btn-primary btn-sm">Sửa</button> </a>
+                    </td>
+                    <td>
+                        <form action="{{ route('QLsanpham.destroy',$row->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </table>
             </td>
+           </th>
             
         </tr>
         @endforeach
