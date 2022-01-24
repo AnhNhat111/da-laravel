@@ -17,7 +17,7 @@ class AdminTableSeeder extends Seeder
     {
        
         $faker = Faker::create();
-        for($i =0 ;$i< 10;$i++){
+        for($i =0 ;$i < 2;$i++){
             admin::create([  
                    'LOAITK_ID' => rand(1,2),
                    'email' => $faker->email,

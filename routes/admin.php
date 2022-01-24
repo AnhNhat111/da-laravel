@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\LoaiSanPhamController;
 use App\Http\Controllers\Admin\LoaiTaiKhoanController;
+use App\Http\Controllers\Admin\ql_ctspController;
 use App\Http\Controllers\Admin\QuanLyTaiKhoanController;
 use App\Http\Controllers\Admin\SanPhamController;
 
@@ -29,6 +30,7 @@ Route::group(['prefix' => '/'], function () {
         Route::resource('loaitaikhoan', LoaiTaiKhoanController::class);
         Route::resource('quan-ly-tai-khoan', QuanLyTaiKhoanController::class);
         Route::resource('QLsanpham', SanPhamController::class);
+        Route::resource('chi-tiet-san-pham', ql_ctspController::class);
     });
     // Route::get('QLsanpham',[SanPhamController::class,'index'])->name('QLsanpham');
 

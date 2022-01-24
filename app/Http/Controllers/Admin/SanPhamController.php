@@ -61,25 +61,41 @@ class SanPhamController extends Controller
         $data = $request->validate([
             "LOAISP_ID" => '',    
             "TENSP"=>'string|',
+            "MASP" => 'required|string|unique:sanpham,MASP',
             "TRANGTHAI"=>'',
-            "HINHANH" => 'required|string',
+            "HINHANH" => '',
             "MOTA" => 'required|string',
             "GIABAN" => 'required',    
-            "SLTK"=> 'required', 
-            "COLOR" =>  'required|string',
-            "SIZE" => 'required|string',
         ]); 
-       
+        $getImages = '';
+            if($request->hasFile('HINHANH')){
+                //Hàm kiểm tra dữ liệu
+                $this->validate($request, 
+                    [
+                        //Kiểm tra đúng file đuôi .jpg,.jpeg,.png.gif và dung lượng không quá 2M
+                        'HINHANH' => 'mimes:jpg,jpeg,png,gif|max:2048',
+                    ],			
+                    [
+                        //Tùy chỉnh hiển thị thông báo không thõa điều kiện
+                        'HINHANH.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                        'HINHANH.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+                    ]
+                );
+                
+                //Lưu hình ảnh vào thư mục public/upload/hinhthe
+                $anh = $request->file('HINHANH');
+                $getImages = time().'_'.$anh->getClientOriginalName();
+                $destinationPath = public_path('assets/user/img/product');
+                $anh->move($destinationPath, $getImages);
+            }
         $create = $this->model::create([
             "LOAISP_ID" => $data['LOAISP_ID'],    
             "TENSP"=> $data['TENSP'],
+            "MASP"=> $data['MASP'],
             "TRANGTHAI"=>$data['TRANGTHAI'] = 1,
-            "HINHANH" => $data['HINHANH'],
+            "HINHANH" => $getImages,
             "MOTA" => $data['MOTA'],
             "GIABAN" => $data['GIABAN'],    
-            "SLTK"=> $data['SLTK'], 
-            "COLOR" => $data['COLOR'],
-            "SIZE" => $data['SIZE'],
         ]);
         if ($create->save()) {
             return redirect()->route('QLsanpham.index');
@@ -134,17 +150,38 @@ class SanPhamController extends Controller
        
        $sp->TRANGTHAI = $request->TRANGTHAI ? 1 : 0;
 
-       $sp->HINHANH = $request->HINHANH;
-
        $sp->MOTA = $request->MOTA;
        
        $sp->GIABAN = $request->GIABAN;
        
-       $sp->SLTK = $request->SLTK;
+       if($request->hasFile('HINHANH')){
+        $this->validate($request, 
+            [
+                'HINHANH' => 'mimes:jpg,jpeg,png,gif|max:2048',
+            ],			
+            [
+                'HINHANH.mimes' => 'Chỉ chấp nhận hình thẻ với đuôi .jpg .jpeg .png .gif',
+                'HINHANH.max' => 'Hình thẻ giới hạn dung lượng không quá 2M',
+            ]
+        );
+        
+        //Xóa file hình thẻ cũ
+        $getImages = DB::table('sanpham')->select('HINHANH')->where('id',$id)->get();
+        if($getImages[0]->HINHANH != '' && file_exists(public_path('assets/user/img/product/'.$getImages[0]->HINHANH)))
+        {  
+            unlink(public_path('assets/user/img/product/'.$getImages[0]->HINHANH));
+        }
+        
+        //Lưu file hình thẻ mới
+        $anh = $request->file('HINHANH');
+        $getImage = time().'_'.$anh->getClientOriginalName();
+        $destinationPath = public_path('assets/user/img/product');
+        $anh->move($destinationPath, $getImage);
+        $updateImages = DB::table('sanpham')->where('id', $id)->update([
+            'HINHANH' => $getImage
+        ]);
+    }
 
-       $sp->COLOR = $request->COLOR;
-       
-       $sp->SIZE = $request->SIZE;
        
        if ($sp->save()) {
         return redirect()->route('QLsanpham.index');

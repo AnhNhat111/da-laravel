@@ -8,15 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class chitietsanpham extends Model
 {
     use HasFactory;
-    use HasFactory;
     protected $fillable = [
         'SANPHAM_ID',
-        'MASP', // phân biệt các màu, và size
+        'SLTK',
         'TRANGTHAI',
-        'GIABAN',
         'COLOR',
         'SIZE'
     ];
     protected $primarykey = 'id';
-    protected $table = 'ctsp';
+    protected $table = 'chitietsanpham';
 }

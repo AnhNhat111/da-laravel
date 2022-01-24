@@ -13,15 +13,16 @@ class CreateChitietsanphamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('chitietsanphams', function (Blueprint $table) {
+        Schema::create('chitietsanpham', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('SANPHAM_ID')->unsigned();
-            $table->string('MASP');
             $table->string('COLOR');
             $table->string('SIZE');
+            $table->integer('SLTK');
+            $table->integer('TRANGTHAI');
             $table->timestamps();
 
-            //$table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
+            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateChitietsanphamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chitietsanphams');
+        Schema::dropIfExists('chitietsanpham');
     }
 }

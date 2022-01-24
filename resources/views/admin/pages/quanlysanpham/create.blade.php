@@ -18,7 +18,7 @@
 		</button>
 	</div>
 @endif --}}
-    <form action="{{ route('QLsanpham.store') }}" method="post">
+    <form action="{{ route('QLsanpham.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
                 <label for="LOAISP_ID">Loại sản phẩm</label>
@@ -28,6 +28,9 @@
                         <option value="{!! $loaisp->id !!}">{!! $loaisp->TENLOAISP !!}</option>
                     @endforeach
                 </select>
+            <label for="my-input">Mã sản phẩm</label>
+            <input id="my-input" required class="form-control" type="text" name="MASP">
+
             <label for="my-input">Tên sản phẩm</label>
             <input id="my-input" required class="form-control" type="text" name="TENSP">
 
@@ -37,17 +40,9 @@
             <label for="my-input">Mô tả</label>
             <input id="my-input" required class="form-control" type="text" name="MOTA">
 
-            <label for="my-input">Hình ảnh</label>
-            <input id="my-input" required class="form-control" type="text" name="HINHANH">
+            <label for="my-input">Ảnh</label>
+            <input id="my-input" required class="form-control" type="file" name="HINHANH">
 
-            <label for="my-input">Màu</label>
-            <input id="my-input" required class="form-control" type="text" name="COLOR">
-
-            <label for="my-input">SLTK</label>
-            <input id="my-input" required class="form-control" type="text" name="SLTK">
-
-            <label for="my-input">Kích cỡ</label>
-            <input id="my-input" required class="form-control" type="text" name="SIZE">
 
             {{-- <label for="SIZE">Kích cỡ</label>
             <select class="form-control" id="SIZE" name="SIZE" required>
