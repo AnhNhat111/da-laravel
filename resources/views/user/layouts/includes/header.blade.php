@@ -8,7 +8,7 @@
     <div class="offcanvas-menu-wrapper">
         <div class="offcanvas__option">
             <div class="offcanvas__links">
-                <a href="">Sign in</a>
+                <a href="">Logout</a>
                 <a href="#">FAQs</a>
             </div>
             <div class="offcanvas__top__hover">
@@ -46,7 +46,7 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('signin') }}">Sign in</a>
+                                <a href="{{ route('user.logout') }}">Logout</a>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">

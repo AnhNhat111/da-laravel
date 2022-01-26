@@ -197,7 +197,6 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from sanpham where id = ?', [$id]);
         return redirect()->route('QLsanpham.index');
     }
 }

@@ -143,7 +143,10 @@ class ql_ctspController extends Controller
      */
     public function destroy($id)
     {
-        $kq = DB::delete('delete from chitietsanpham where id = ?', [$id]);
+        DB::statement("SET foreign_key_checks=0");
+        $kq = DB::delete('delete from chitietsanpham where SANPHAM_ID = ?', [$id]);
+        DB::statement("SET foreign_key_checks=1");
+        
         return redirect()->route('chitietsanpham.index');
     }
 }
