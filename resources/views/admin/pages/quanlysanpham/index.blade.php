@@ -29,15 +29,15 @@
             <th>
                 <td class="text-center">
                     @if ($row->TRANGTHAI == 1)
-                    
+
                     <span class="badge badge-
                     success">Yes</span>
-                    
+
                     @else
-                    
+
                     <span class="badge badge-
                     danger">No</span>
-                    
+
                     @endif
                  </td>
             </th>
@@ -58,7 +58,7 @@
                 </table>
             </td>
            </th>
-            
+
         </tr>
         @endforeach
     </tbody>
