@@ -116,7 +116,7 @@
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6>{{$proU[$i]->TENSP}}</h6>
+                            <a {{route('detail', ['id'=>$proU->id])}}>{{$proU[$i]->TENSP}}</a>
                             <a href="#" class="add-cart">Thêm vào giỏ hàng</a>
                             <div class="rating">
                                 <i class="fa fa-star-o"></i>
