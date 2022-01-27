@@ -53,7 +53,12 @@ class SanPhamController extends Controller
      */
     public function show($id)
     {
-        //
+        $proU = DB::table('loaisanpham as lsp')
+        ->rightJoin('sanpham as sp', 'lsp.id','sp.LOAISP_ID')
+        ->select('*')->where('sanpham as sp','sp.id','==',$id)->first()->get();
+        return view('user.pages.product-detail',[
+            'proU'=> $proU
+        ]);
     }
 
     /**
