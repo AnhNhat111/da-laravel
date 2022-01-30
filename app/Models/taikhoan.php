@@ -20,4 +20,8 @@ class taikhoan extends Authenticatable
     ];
     protected $primarykey = 'id';
     protected $table ='taikhoan';
+    public function giohang()
+    {
+        return $this->belongsTo(giohang::class, 'TAIKHOAN_ID');
+    }
 }
