@@ -15,5 +15,5 @@ class giohang extends Model
         'SOLUONG',
         'TONGTIEN'
     ];
-    protected $table ='giohang';
+    protected $table = 'giohang';
 }

@@ -16,7 +16,7 @@ class Giohang extends Migration
         Schema::create('giohang', function (Blueprint $table) {
             $table->integer('TAIKHOAN_ID')->unsigned();
             $table->integer('SANPHAM_ID')->unsigned();
-            $table->integer('HOADON_ID')->unsigned();
+            $table->bigInteger('HOADON_ID');
             $table->integer('SOLUONG');
             $table->double('TONGTIEN');
             $table->timestamps();
