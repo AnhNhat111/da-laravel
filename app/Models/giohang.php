@@ -18,6 +18,6 @@ class giohang extends Model
     protected $table = 'giohang';
 
     public function taikhoan(){
-        return $this->hasMany(taikhoan::class, 'TAIKHOAN_ID', 'id');
+        return $this->belongsTo(taikhoan::class, 'TAIKHOAN_ID');
     }
 }
