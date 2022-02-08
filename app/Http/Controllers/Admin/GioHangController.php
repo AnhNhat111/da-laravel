@@ -22,12 +22,8 @@ class GioHangController extends Controller
      */
     public function index()
     {
-        $test = $this->model::all();
-        return $test[0]->TENHIENTHI;
-        $data = $this->model->where([
-            ['HOADON_ID' => null]
-        ])->get();
-        return $data;
+        
+        $data = $this->model->getAllData();
         return view('admin.pages.giohang.index', [
             'data' => $data
         ]);

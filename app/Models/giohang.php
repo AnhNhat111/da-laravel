@@ -16,8 +16,22 @@ class giohang extends Model
         'TONGTIEN'
     ];
     protected $table = 'giohang';
-
-    public function taikhoan(){
+    protected $trangthai;
+    function __construct()
+    {
+        $this->trangthai = config('setDefault.hoadon.giohang.TRANGTHAI');
+    }
+    public function taikhoan()
+    {
         return $this->belongsTo(taikhoan::class, 'TAIKHOAN_ID');
+    }
+    public function getAllData()
+    {
+        $query = 'select * from giohang 
+        inner join taikhoan on giohang.TAIKHOAN_ID = taikhoan.ID 
+        inner join hoadon on hoadon.id = giohang.HOADON_ID 
+        inner join sanpham on sanpham.id = giohang.SANPHAM_ID 
+        where hoadon.TRANGTHAI =  ' . $this->trangthai;
+        return selectWithParam($query);
     }
 }

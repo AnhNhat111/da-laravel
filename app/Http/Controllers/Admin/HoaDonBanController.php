@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\hoadon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HoaDonBanController extends Controller
 {
@@ -21,7 +22,7 @@ class HoaDonBanController extends Controller
      */
     public function index()
     {
-        $data = $this->model->get();
+        $data = $this->model->getAllData();
         return view('admin.pages.hoadonban.index', [
             'data' => $data
         ]);
@@ -67,7 +68,6 @@ class HoaDonBanController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -90,6 +90,7 @@ class HoaDonBanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kq = DB::update('update hoadon set TRANGTHAI = 2 where id = ?', [$id]);
+        return redirect()->route('hoadonban.index');
     }
 }

@@ -52,7 +52,7 @@
                         <form action="{{ route('QLsanpham.destroy',$row->id) }}" method="POST">
                             @csrf
                             @method('delete')
-                            <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
                         </form>
                     </td>
                 </table>
