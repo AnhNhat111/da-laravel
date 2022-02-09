@@ -10,6 +10,6 @@ Route::group(['prefix' => '/'], function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('user.logout');
 
     Route::get('/', function () {
-    return view('user.pages.index');
-});
+        return view('user.pages.index');
+    });
 });
