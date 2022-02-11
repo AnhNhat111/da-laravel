@@ -24,8 +24,12 @@ class SanPhamController extends Controller
     function chitietsp($id)
     {
         $data = $this->model->chitietsanpham($id);
+        $size = $this->model->kichthuoc($id);
+        $color = $this->model->mausac($id);
         return view('user.pages.product-detail', [
-            'data' => $data
+            'data' => $data,
+            'size' => $size,
+            'color' => $color
         ]);
     }
 }
