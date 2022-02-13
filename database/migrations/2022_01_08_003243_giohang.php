@@ -16,14 +16,12 @@ class Giohang extends Migration
         Schema::create('giohang', function (Blueprint $table) {
             $table->integer('TAIKHOAN_ID')->unsigned();
             $table->integer('SANPHAM_ID')->unsigned();
-            $table->bigInteger('HOADON_ID');
+            $table->integer('HOADON_ID')->unsigned();
             $table->integer('SOLUONG');
             $table->double('TONGTIEN');
             $table->timestamps();
 
-            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
-            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
-            $table->foreign('HOADON_ID')->references('id')->on('hoadon');
+
         });
     }
 

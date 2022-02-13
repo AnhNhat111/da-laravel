@@ -22,10 +22,10 @@ class Sanpham extends Migration
             $table->string('HINHANH');
             $table->string('MOTA');
             $table->integer('GIABAN');
-          
+
             $table->timestamps();
 
-            $table->foreign('LOAISP_ID')->references('id')->on('loaisanpham');
+
         });
 
     }

@@ -22,7 +22,7 @@ class CreateChitietsanphamsTable extends Migration
             $table->integer('TRANGTHAI');
             $table->timestamps();
 
-            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
+
         });
     }
 
