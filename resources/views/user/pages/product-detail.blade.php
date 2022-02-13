@@ -57,11 +57,9 @@
                                     <span>Color:</span>
                                     @foreach ($color as $c)
                                         <label for="">{{ $c->COLOR }}
-                                        <input type="radio" id="">
-                                    </label>
-                                    
+                                            <input type="radio" id="">
+                                        </label>
                                     @endforeach
-                                    
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
