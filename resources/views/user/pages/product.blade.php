@@ -124,44 +124,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
-                                    </div>
-                                    <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__color">
-                                                <label class="c-1" for="sp-1">
-                                                    <input type="radio" id="sp-1">
-                                                </label>
-                                                <label class="c-2" for="sp-2">
-                                                    <input type="radio" id="sp-2">
-                                                </label>
-                                                <label class="c-3" for="sp-3">
-                                                    <input type="radio" id="sp-3">
-                                                </label>
-                                                <label class="c-4" for="sp-4">
-                                                    <input type="radio" id="sp-4">
-                                                </label>
-                                                <label class="c-5" for="sp-5">
-                                                    <input type="radio" id="sp-5">
-                                                </label>
-                                                <label class="c-6" for="sp-6">
-                                                    <input type="radio" id="sp-6">
-                                                </label>
-                                                <label class="c-7" for="sp-7">
-                                                    <input type="radio" id="sp-7">
-                                                </label>
-                                                <label class="c-8" for="sp-8">
-                                                    <input type="radio" id="sp-8">
-                                                </label>
-                                                <label class="c-9" for="sp-9">
-                                                    <input type="radio" id="sp-9">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="card">
                                     <div class="card-heading">
                                         <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
@@ -219,7 +182,7 @@
                                         <li><a href="#"><img src="assets/user/img/icon/search.png" alt=""></a></li>
                                     </ul>
                                 </div>
-                                
+
                                 <div class="product__item__text">
                                     <h6>{{ $pro->TENSP }}</h6>
                                     <a href="#" class="add-cart">+ Add To Cart</a>
@@ -231,22 +194,11 @@
                                         <i class="fa fa-star-o"></i>
                                     </div>
                                     <h5>{{ $pro->GIABAN }}đ</h5>
-                                    <div class="product__color__select">
-                                        <label for="pc-4">
-                                            <input type="radio" id="pc-4">
-                                        </label>
-                                        <label class="active black" for="pc-5">
-                                            <input type="radio" id="pc-5">
-                                        </label>
-                                        <label class="grey" for="pc-6">
-                                            <input type="radio" id="pc-6">
-                                        </label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        
+
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
