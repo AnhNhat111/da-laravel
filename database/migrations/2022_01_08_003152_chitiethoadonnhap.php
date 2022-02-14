@@ -19,9 +19,6 @@ class Chitiethoadonnhap extends Migration
             $table->integer('SOLUONG');
             $table->double('GIANHAP');
             $table->timestamps();
-
-            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
-            $table->foreign('HDNHAP_ID')->references('id')->on('hoadonnhap');
         });
     }
 

@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\LoaiSanPhamController;
+use App\Http\Controllers\User\SanPhamController as UserSanPhamController;
 use App\Models\loaisanpham;
+use App\Models\User;
 use Facade\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +21,7 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 |
 */
 
-Route::group(['prefix' => '/'],function(){
+Route::group(['prefix' => '/'], function () {
 
     Route::get('/', function () {
         return View('user.pages.index');
@@ -29,34 +31,34 @@ Route::group(['prefix' => '/'],function(){
         return View('user.pages.cart');
     })->name('cart');
 
-    Route::get('product', function () {
-        return View('user.pages.product');
-    })->name('product');
-    
+    // Route::get('product', function () {
+    //     return View('user.pages.product');
+    // })->name('product');
+
     Route::get('product-detail', function () {
         return View('user.pages.product-detail');
     })->name('product-detail');
-    
+
     Route::get('checkout', function () {
         return View('user.pages.checkout');
     })->name('checkout');
-    
+
     Route::get('account', function () {
         return View('user.pages.account');
     })->name('account');
-    
+
     Route::get('about', function () {
         return View('user.pages.about');
     })->name('about');
-    
+
     Route::get('contact', function () {
         return View('user.pages.contact');
     })->name('contact');
-    
+
     Route::get('signin', function () {
         return View('user.pages.signin');
     })->name('signin');
-    
+
     Route::get('signup', function () {
         return View('user.pages.signup');
     })->name('signup');
@@ -100,3 +102,7 @@ Route::group(['prefix' => '/'],function(){
 
 
 // Auth::routes();
+Route::group(['prefix' => '/'], function () {
+    Route::get('product', [UserSanPhamController::class, 'danhsach'])->name('user.danhsachsanpham');
+    Route::get('product-detail/{id}', [UserSanPhamController::class, 'chitietsp'])->name('user.chitietsanpham');
+});

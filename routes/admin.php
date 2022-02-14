@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\Admin\GioHangController;
+use App\Http\Controllers\Admin\HoaDonBanController;
 use App\Http\Controllers\Admin\LoaiSanPhamController;
 use App\Http\Controllers\Admin\LoaiTaiKhoanController;
 use App\Http\Controllers\Admin\ql_ctspController;
@@ -18,7 +20,7 @@ Route::group(['prefix' => '/'], function () {
 
     Route::get('index', [Admin\LoginController::class, 'index'])->name('admin.index');
 
-   
+
 
     Route::group(['middleware' => ['auth:admin']], function () {
 
@@ -31,8 +33,11 @@ Route::group(['prefix' => '/'], function () {
         Route::resource('quan-ly-tai-khoan', QuanLyTaiKhoanController::class);
         Route::resource('QLsanpham', SanPhamController::class);
         Route::resource('chi-tiet-san-pham', ql_ctspController::class);
+        Route::resource('giohang', GioHangController::class);
+        Route::resource('hoadonban', HoaDonBanController::class);
     });
     // Route::get('QLsanpham',[SanPhamController::class,'index'])->name('QLsanpham');
+
 
     // Route::get('Themsanpham', [SanPhamController::class,'create'])->name('Themsanpham');
 });

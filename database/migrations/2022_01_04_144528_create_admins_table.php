@@ -18,14 +18,13 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('TENHIENTHI');
             $table->integer('SODIENTHOAI');
-            $table->string('email');    
+            $table->string('email');
             $table->integer('TRANGTHAI');
             $table->string('DIACHI');
             $table->string('ANH');
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
 
-            $table->foreign('LOAITK_ID')->references('id')->on('loaitaikhoan');
         });
     }
 

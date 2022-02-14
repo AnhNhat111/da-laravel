@@ -28,9 +28,15 @@
                     <i class="icon-envelope menu-icon"></i> <span class="nav-text">Quản lý đơn hàng</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="">Quản lý hoá đơn xuất</a></li>
+                    <li><a href="{{ route('hoadonban.index') }}">Quản lý hoá đơn bán</a></li>
                     <li><a href="">Quản lý hoá đơn nhập</a></li>
                 </ul>
+            </li>
+            <li>
+                <a class="has-arrow" href="{{ route('giohang.index') }}" aria-expanded="false">
+                    <i class="icon-envelope menu-icon"></i> <span class="nav-text">Quản lý giỏ hàng</span>
+                </a>
+               
             </li>
         </ul>
     </div>

@@ -25,7 +25,6 @@ class Taikhoan extends Migration
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
 
-            $table->foreign('LOAITK_ID')->references('id')->on('loaitaikhoan');
         });
     }
 
