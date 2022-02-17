@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\LoginController;
-use App\Models\User;
 
 Route::group(['prefix' => '/'], function () {
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('user.login');
