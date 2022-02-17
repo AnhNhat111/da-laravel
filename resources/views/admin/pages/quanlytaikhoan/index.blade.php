@@ -22,7 +22,7 @@
 @endif
 <a href="{{ route('quan-ly-tai-khoan.create') }}"><button type="button" class="btn btn-success">Thêm</button></a>
 <div style="overflow: :auto">
-    <table class="table" style="width:100%;height:300px">
+    <table class="table" >
         <thead>
             <tr style="align-items: center">
                 <th>Loại Tài Khoản</th>
@@ -102,7 +102,7 @@
                     <form action="{{ route('quan-ly-tai-khoan.destroy',$admin->id) }}" method="POST">
                         @csrf
                         @method('delete')
-                        <button style="margin-left: 10px" type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        <button  type="submit" class="btn btn-danger btn-sm">Xóa</button>
                     </form>
                 </td>
             </tr>

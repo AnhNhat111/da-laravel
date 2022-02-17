@@ -23,8 +23,6 @@ class Hoadonnhap extends Migration
             $table->double('TONGTIEN');
             $table->timestamps();
 
-            $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
-            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 
