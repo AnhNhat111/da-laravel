@@ -45,16 +45,19 @@
                     </div>
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
+                            <div class="header__top__links">
+                                <a href="{{ route('user.signup') }}">Sign Up</a>
+                            </div>
                             @if (Auth::check())
                                 <div class="header__top__hover">
                                 <span> {{Auth::user()->TENHIENTHI}} <i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li><a href="{{ route('user.logout') }}">Đăng xuất</a></li>
+                                    <li><a href="{{ route('user.logout') }}">Log Out</a></li>
                                 </ul>
                                 </div>
                             @else
                                 <div class="header__top__links">
-                                <a href="{{ route('user.login') }}">Đăng nhập</a>
+                                <a href="{{ route('user.login') }}">Log In</a>
                                 </div>
                             @endif
                         </div>
