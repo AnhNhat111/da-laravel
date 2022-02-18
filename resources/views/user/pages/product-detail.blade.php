@@ -15,11 +15,11 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                       
+
                         <div class="product__details__pic__item">
                             <img style="width:50%" src="assets/user/img/product/{{ $sp->HINHANH }}" alt="">
                         </div>
-                
+
                     </div>
                 </div>
             </div>
@@ -30,11 +30,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-<<<<<<< HEAD
                             <h4>{{$proU->TENSP}}</h4>
-=======
-                            <h4>{{ $sp->TENSP }}</h4>
->>>>>>> 79cba21762eceaf8a30f1cb94ea1080ef6e0eaa5
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -43,16 +39,8 @@
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-<<<<<<< HEAD
                             <h3>{{$proU->GIABAN}}</h3>
                             <p>{{$proU->MOTA}}</p>
-=======
-                            <p>Loại: {{ $sp->TENLOAISP }}</p>
-                            <h3>Giá Bán: {{ $sp->GIABAN }}đ</h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
->>>>>>> 79cba21762eceaf8a30f1cb94ea1080ef6e0eaa5
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
@@ -83,7 +71,6 @@
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
                                 <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
-<<<<<<< HEAD
                             <div class="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="assets/user/img/shop-details/details-payment.png" alt="">
@@ -93,8 +80,6 @@
                                     <li><span>Tag:</span> Clothes, Skin, Body</li>
                                 </ul>
                             </div>
-=======
->>>>>>> 79cba21762eceaf8a30f1cb94ea1080ef6e0eaa5
                         </div>
                     </div>
                 </div>
@@ -219,7 +204,7 @@
                     </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </section>
     <!-- Shop Details Section End -->
 
