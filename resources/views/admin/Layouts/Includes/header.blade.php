@@ -40,7 +40,7 @@
                                         Profile
                                     @endif</span></a>
                                 </li>
-                                <li><a href="{{ route('admin.logout') }}"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                <li><a href="{{ route('admin.logout') }}"><i class="icon-key"></i> <span>Log Out</span></a></li>
                             </ul>
                         </div>
                     </div>
