@@ -46,15 +46,20 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('user.login') }}">SIGNIN</a>
-                                <a href="#">FAQs</a>
+                                <a href="{{ route('user.signup') }}">Sign Up</a>
                             </div>
-                            <div class="header__top__hover">
-                                <span> NAME <i class="arrow_carrot-down"></i></span>
+                            @if (Auth::check())
+                                <div class="header__top__hover">
+                                <span> {{Auth::user()->TENHIENTHI}} <i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li><a href="{{ route('user.logout') }}">Logout</a></li>
+                                    <li><a href="{{ route('user.logout') }}">Log Out</a></li>
                                 </ul>
-                            </div>
+                                </div>
+                            @else
+                                <div class="header__top__links">
+                                <a href="{{ route('user.login') }}">Log In</a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

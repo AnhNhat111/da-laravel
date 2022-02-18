@@ -145,23 +145,23 @@
                 <li class="icons dropdown">
                     <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                         <span class="activity active"></span>
-                        <img src="assets/admin/images/user/1.png" height="40" width="40" alt="">
+                        @if (Auth::check())
+                            <img src={{Auth::user()->HINHANH}} height="40" width="40" alt="">
+                        @else
+                            <img src="assets/admin/images/user/form-user.png" height="40" width="40" alt="">
+                        @endif                       
                     </div>
                     <div class="drop-down dropdown-profile   dropdown-menu">
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <a href="app-profile.html"><i class="icon-user"></i> <span>@if (Auth::check())
+                                        {{Auth::user()->TENHIENTHI}}
+                                    @else
+                                        Profile
+                                    @endif</span></a>
                                 </li>
-                                <li>
-                                    <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
-                                </li>
-
-                                <hr class="my-2">
-                                <li>
-                                    <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                </li>
-                                <li><a href="{{ route('admin.logout') }}"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                <li><a href="{{ route('admin.logout') }}"><i class="icon-key"></i> <span>Log Out</span></a></li>
                             </ul>
                         </div>
                     </div>
