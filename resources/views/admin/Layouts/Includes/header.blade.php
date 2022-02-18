@@ -151,7 +151,11 @@
                         <div class="dropdown-content-body">
                             <ul>
                                 <li>
-                                    <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                    <a href="app-profile.html"><i class="icon-user"></i> <span>@if (Auth::check())
+                                        {{Auth::user()->TENHIENTHI}}
+                                    @else
+                                        Profile
+                                    @endif</span></a>
                                 </li>
                                 <li>
                                     <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
