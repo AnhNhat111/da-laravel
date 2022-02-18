@@ -50,7 +50,7 @@
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Name <i class="arrow_carrot-down"></i></span>
+                                <span> NAME <i class="arrow_carrot-down"></i></span>
                                 <ul>
                                     <li><a href="{{ route('user.logout') }}">Logout</a></li>
                                 </ul>

@@ -14,5 +14,6 @@ class chitiethoadonnhap extends Model
         'SOLUONG',
         'GIANHAP'
     ];
+    protected $primarykey = 'id';
     protected $table ='cthd_nhap';
 }

@@ -29,7 +29,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $data = DB::select('select * from taikhoan'); 
+        
+       
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|min:6'
@@ -40,7 +41,8 @@ class LoginController extends Controller
        
     ], $request->get('remember'))) {
         
-         return redirect()->intended(route('user.pages.login',[$data]));
+        return redirect()->intended(route('user.index'));
+        
     }
          return back()->withInput($request->only('email', 'remember'));
     }
