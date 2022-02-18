@@ -145,7 +145,11 @@
                 <li class="icons dropdown">
                     <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                         <span class="activity active"></span>
-                        <img src="assets/admin/images/user/1.png" height="40" width="40" alt="">
+                        @if (Auth::check())
+                            <img src={{Auth::user()->HINHANH}} height="40" width="40" alt="">
+                        @else
+                            <img src="assets/admin/images/user/form-user.png" height="40" width="40" alt="">
+                        @endif                       
                     </div>
                     <div class="drop-down dropdown-profile   dropdown-menu">
                         <div class="dropdown-content-body">
