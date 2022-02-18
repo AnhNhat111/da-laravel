@@ -17,7 +17,6 @@ class Hoadonnhap extends Migration
             $table->Increments('id');
             $table->integer('TAIKHOAN_ID')->unsigned();
             $table->integer('SANPHAM_ID')->unsigned();
-            $table->date('NGAYNHAP');
             $table->string('NHACUNGCAP');
             $table->integer('TRANGTHAI');
             $table->double('TONGTIEN');
