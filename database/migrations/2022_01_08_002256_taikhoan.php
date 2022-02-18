@@ -17,7 +17,7 @@ class Taikhoan extends Migration
             $table->Increments('id');
             $table->string('password');
             $table->string('TENHIENTHI');
-            $table->integer('SODIENTHOAI');
+            $table->string('SODIENTHOAI');
             $table->string('email');
             $table->integer('TRANGTHAI');
             $table->string('DIACHI');

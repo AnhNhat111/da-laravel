@@ -55,13 +55,13 @@ Route::group(['prefix' => '/'], function () {
         return View('user.pages.contact');
     })->name('contact');
 
-    Route::get('signin', function () {
-        return View('user.pages.signin');
-    })->name('signin');
+    // Route::get('signin', function () {
+    //     return View('user.pages.signin');
+    // })->name('signin');
 
-    Route::get('signup', function () {
-        return View('user.pages.signup');
-    })->name('signup');
+    // Route::get('signup', function () {
+    //     return View('user.pages.signup');
+    // })->name('signup');
 });
 
 

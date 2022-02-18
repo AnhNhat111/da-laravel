@@ -14,8 +14,9 @@ class hoadonnhap extends Model
         'NGAYNHAP',
         'NHACUNGCAP',
         'TRANGTHAI',
+        'SOLUONG',
         'TONGTIEN',
     ];
-    protected $primarykey = 'id';
+
     protected $table ='hoadonnhap';
 }
