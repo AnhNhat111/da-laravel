@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    
+
     protected $redirectTo = '/user';
 
     public function __construct()
@@ -28,7 +28,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        
+
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|min:6'
@@ -36,10 +36,10 @@ class LoginController extends Controller
     if (Auth::guard('user')->attempt([
         'email' => $request->email,
         'password' => $request->password
-       
+
     ], $request->get('remember'))) {
-     
-         return redirect()->intended(route('user.pages.index'));
+
+         return redirect()->intended(route('user.login'));
     }
          return back()->withInput($request->only('email', 'remember'));
     }
