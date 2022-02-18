@@ -1,14 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
+use App\Models\hoadon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SanPhamController extends Controller
+class HoaDonBanController extends Controller
 {
+    protected $table = "hoadon";
+    protected $model;
+    function __construct()
+    {
+        $this->model = new hoadon();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,12 +22,9 @@ class SanPhamController extends Controller
      */
     public function index()
     {
-        //
-        $proU = DB::table('loaisanpham as lsp')
-        ->rightJoin('sanpham as sp', 'lsp.id','sp.LOAISP_ID')
-        ->select('*')->get();
-        return view('user.pages.index',[
-        'proU'=> $proU
+        $data = $this->model->getAllData();
+        return view('admin.pages.hoadonban.index', [
+            'data' => $data
         ]);
     }
 
@@ -54,12 +57,7 @@ class SanPhamController extends Controller
      */
     public function show($id)
     {
-        $proU = DB::table('loaisanpham as lsp')
-        ->rightJoin('sanpham as sp', 'lsp.id','sp.LOAISP_ID')
-        ->select('*')->where('sanpham as sp','sp.id','==',$id)->first()->get();
-        return view('user.pages.product-detail',[
-            'proU'=> $proU
-        ]);
+        //
     }
 
     /**
@@ -70,7 +68,6 @@ class SanPhamController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -93,37 +90,7 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kq = DB::update('update hoadon set TRANGTHAI = 2 where id = ?', [$id]);
+        return redirect()->route('hoadonban.index');
     }
-=======
-use App\Models\sanpham;
-use Illuminate\Http\Request;
-
-class SanPhamController extends Controller
-{
-    protected $table = "sanpham";
-    protected $model;
-    function __construct()
-    {
-        $this->model = new sanpham();
-    }
-    function danhsach()
-    {
-        $data = $this->model->danhsachsp();
-        return view('user.pages.product', [
-            'data' => $data
-        ]);
-    }
-    function chitietsp($id)
-    {
-        $data = $this->model->chitietsanpham($id);
-        $size = $this->model->kichthuoc($id);
-        $color = $this->model->mausac($id);
-        return view('user.pages.product-detail', [
-            'data' => $data,
-            'size' => $size,
-            'color' => $color
-        ]);
-    }
->>>>>>> 79cba21762eceaf8a30f1cb94ea1080ef6e0eaa5
 }

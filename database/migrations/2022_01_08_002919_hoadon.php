@@ -22,7 +22,6 @@ class Hoadon extends Migration
             $table->integer('TRANGTHAI');
             $table->timestamps();
 
-            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
         });
     }
 

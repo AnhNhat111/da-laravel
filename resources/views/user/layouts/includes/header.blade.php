@@ -46,15 +46,13 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="{{ route('user.logout') }}">Logout</a>
+                                <a href="{{ route('user.login') }}">SIGNIN</a>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <span> NAME <i class="arrow_carrot-down"></i></span>
                                 <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
+                                    <li><a href="{{ route('user.logout') }}">Logout</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -73,7 +71,7 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                            <li><a href="{{ route('product') }}">Shop</a></li>
+                            <li><a href="{{ route('user.danhsachsanpham') }}">Shop</a></li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="{{ route('about') }}">About Us</a></li>

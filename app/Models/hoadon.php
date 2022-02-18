@@ -16,5 +16,12 @@ class hoadon extends Model
         'TRANGTHAI'
     ];
     protected $primarykey = 'id';
-    protected $table ='hoadon';
+    protected $table = 'hoadon';
+
+    public function getAllData()
+    {
+        $query = 'select * from hoadon 
+        where hoadon.TRANGTHAI != 0';
+        return selectWithParam($query);
+    }
 }
