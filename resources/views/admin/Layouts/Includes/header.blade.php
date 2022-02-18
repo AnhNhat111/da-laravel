@@ -25,7 +25,7 @@
                     <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
                         <span class="activity active"></span>
                         @if (Auth::check())
-                            <img src="assets/admin/images/avatar/{{Auth::user()->ANH}}" height="40" width="40" alt="">
+                            <img src="upload/avatar/{{Auth::user()->ANH}}" height="40" width="40" alt="">
                         @else
                             <img src="assets/admin/images/user/form-user.png" height="40" width="40" alt="">
                         @endif
