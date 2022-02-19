@@ -25,22 +25,27 @@ class sanpham extends Model
         $query = 'select * from sanpham ';
         return selectWithParam($query);
     }
+    public function danhsachsp1($id)
+    {
+        $query = 'select * from sanpham where id = ' . $id;
+        return selectWithParam($query)[0];
+    }
     public function chitietsanpham($id)
     {
-        $query = 'select * from sanpham 
+        $query = 'select * from sanpham
         inner join loaisanpham on loaisanpham.id = sanpham.LOAISP_ID
         where sanpham.id = ' . $id;
         return selectWithParam($query);
     }
     public function kichthuoc($id)
     {
-        $query = 'select * from chitietsanpham 
+        $query = 'select * from chitietsanpham
         where chitietsanpham.SANPHAM_ID = ' . $id;
         return selectWithParam($query);
     }
     public function mausac($id)
     {
-        $query = 'select distinct COLOR from chitietsanpham 
+        $query = 'select distinct COLOR from chitietsanpham
         where chitietsanpham.SANPHAM_ID = ' . $id;
         return selectWithParam($query);
     }

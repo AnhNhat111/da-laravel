@@ -15,19 +15,16 @@ class Sanpham extends Migration
     {
         Schema::create('sanpham', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('LOAISP_ID')->unsigned();
-            $table->string('MASP');
-            $table->string('TENSP');
-            $table->integer('TRANGTHAI');
-            $table->string('HINHANH');
-            $table->string('MOTA');
-            $table->integer('GIABAN');
+            $table->integer('LOAISP_ID')->unsigned()->nullable();
+            $table->string('MASP')->nullable();
+            $table->string('TENSP')->nullable();
+            $table->integer('TRANGTHAI')->nullable();
+            $table->string('HINHANH')->nullable();
+            $table->string('MOTA')->nullable();
+            $table->integer('GIABAN')->nullable();
 
             $table->timestamps();
-
-
         });
-
     }
 
     /**

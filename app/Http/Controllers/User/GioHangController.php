@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\giohang;
+use App\Models\sanpham;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class GioHangController extends Controller
 {
@@ -12,9 +15,18 @@ class GioHangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = new giohang();
+    }
     public function index()
     {
-        //
+        $id = Auth::guard('user')->id();
+        $data = $this->model->getDataId($id);
+        return view('user.pages.cart')->with(['data' => $data]);
     }
 
     /**
@@ -24,7 +36,6 @@ class GioHangController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +46,23 @@ class GioHangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $id = Auth::guard('user')->id();
+        $sp = new sanpham();
+        $dataSp = $sp->danhsachsp1($request->SANPHAM_ID);
+        $data = $this->model->getDuplicateId($id, $dataSp->id);
+        if ($data) {
+            $this->model->editQuantity($data[0]);
+            return redirect()->route('user.giohang');
+        }
+        $result = [
+            'TAIKHOAN_ID' => $id,
+            'SANPHAM_ID' => $dataSp->id,
+            'SOLUONG' => 1,
+            'TONGTIEN' => $dataSp->GIABAN
+        ];
+        $this->model->addToCart($result);
+
+        return redirect()->route('user.giohang');
     }
 
     /**

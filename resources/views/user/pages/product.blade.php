@@ -185,7 +185,13 @@
 
                                 <div class="product__item__text">
                                     <h6>{{ $pro->TENSP }}</h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                                    <form action="{{route('user.giohang')}}" method="POST" class="add-cart">
+                                        @csrf
+                                        <input type="hidden" name="SANPHAM_ID" value="{{ $pro->id }}">
+
+                                        <input type="submit" value="+ Add To Cart">
+
+                                    </form>
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>

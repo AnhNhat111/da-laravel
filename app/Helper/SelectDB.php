@@ -8,3 +8,10 @@ if (!function_exists('selectWithParam')) {
         return DB::select($query);
     }
 }
+
+if (!function_exists('editWithParam')) {
+    function editWithParam($query, $where)
+    {
+        return DB::update($query, $where);
+    }
+}

@@ -15,13 +15,12 @@ class Hoadon extends Migration
     {
         Schema::create('hoadon', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('TAIKHOAN_ID')->unsigned();
-            $table->string('DIACHI');
-            $table->string('GHICHU');
-            $table->double('TONGTIEN');
-            $table->integer('TRANGTHAI');
+            $table->integer('TAIKHOAN_ID')->unsigned()->nullable();
+            $table->string('DIACHI')->nullable();
+            $table->string('GHICHU')->nullable();
+            $table->double('TONGTIEN')->nullable();
+            $table->integer('TRANGTHAI')->nullable();
             $table->timestamps();
-
         });
     }
 

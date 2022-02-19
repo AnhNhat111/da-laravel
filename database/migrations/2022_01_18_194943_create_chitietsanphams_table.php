@@ -15,14 +15,12 @@ class CreateChitietsanphamsTable extends Migration
     {
         Schema::create('chitietsanpham', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('SANPHAM_ID')->unsigned();
-            $table->string('COLOR');
-            $table->string('SIZE');
-            $table->integer('SLTK');
-            $table->integer('TRANGTHAI');
+            $table->integer('SANPHAM_ID')->unsigned()->nullable();
+            $table->string('COLOR')->nullable();
+            $table->string('SIZE')->nullable();
+            $table->integer('SLTK')->nullable();
+            $table->integer('TRANGTHAI')->nullable();
             $table->timestamps();
-
-
         });
     }
 

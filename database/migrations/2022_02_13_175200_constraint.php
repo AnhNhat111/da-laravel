@@ -36,7 +36,7 @@ class Constraint extends Migration
         Schema::table('giohang', function (Blueprint $table) {
             $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
             $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
-            $table->foreign('HOADON_ID')->references('id')->on('hoadon');
+            // $table->foreign('HOADON_ID')->references('id')->on('hoadon');
         });
         Schema::table('chitietsanpham', function (Blueprint $table) {
             $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
@@ -73,7 +73,6 @@ class Constraint extends Migration
         Schema::table('giohang', function (Blueprint $table) {
             $table->dropForeign(['TAIKHOAN_ID']);
             $table->dropForeign(['SANPHAM_ID']);
-            $table->dropForeign(['HOADON_ID']);
         });
         Schema::table('chitietsanpham', function (Blueprint $table) {
             $table->dropForeign(['SANPHAM_ID']);

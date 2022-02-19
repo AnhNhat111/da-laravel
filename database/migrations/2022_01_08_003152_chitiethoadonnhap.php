@@ -14,10 +14,10 @@ class Chitiethoadonnhap extends Migration
     public function up()
     {
         Schema::create('chitiethoadonnhap', function (Blueprint $table) {
-            $table->integer('HDNHAP_ID')->unsigned();
-            $table->integer('SANPHAM_ID')->unsigned();
-            $table->integer('SOLUONG');
-            $table->double('GIANHAP');
+            $table->integer('HDNHAP_ID')->unsigned()->nullable();
+            $table->integer('SANPHAM_ID')->unsigned()->nullable();
+            $table->integer('SOLUONG')->nullable();
+            $table->double('GIANHAP')->nullable();
             $table->timestamps();
         });
     }

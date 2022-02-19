@@ -13,18 +13,17 @@ class Taikhoan extends Migration
      */
     public function up()
     {
-        Schema::create('taikhoan',function (Blueprint $table) {
+        Schema::create('taikhoan', function (Blueprint $table) {
             $table->Increments('id');
             $table->string('password');
-            $table->string('TENHIENTHI');
-            $table->string('SODIENTHOAI');
-            $table->string('email');
-            $table->integer('TRANGTHAI');
-            $table->string('DIACHI');
-            $table->string('ANH');
+            $table->string('TENHIENTHI')->nullable();
+            $table->string('SODIENTHOAI')->nullable();
+            $table->string('email')->nullable();
+            $table->integer('TRANGTHAI')->nullable();
+            $table->string('DIACHI')->nullable();
+            $table->string('ANH')->nullable();
             $table->integer('LOAITK_ID')->unsigned();
             $table->timestamps();
-
         });
     }
 

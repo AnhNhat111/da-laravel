@@ -15,7 +15,7 @@ class Loaitaikhoan extends Migration
     {
         Schema::create('loaitaikhoan', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('TENLOAITAIKHOAN');
+            $table->string('TENLOAITAIKHOAN')->nullable();
             $table->timestamps();
         });
     }

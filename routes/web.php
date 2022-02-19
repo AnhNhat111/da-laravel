@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\SanPhamController;
 use App\Http\Controllers\LoaiSanPhamController;
+use App\Http\Controllers\User\GioHangController;
 use App\Http\Controllers\User\SanPhamController as UserSanPhamController;
 use App\Models\loaisanpham;
 use App\Models\User;
@@ -22,7 +23,6 @@ use PHPUnit\TextUI\XmlConfiguration\Group;
 */
 
 Route::group(['prefix' => '/'], function () {
-
     Route::get('/', function () {
         return View('user.pages.index');
     })->name('index');
@@ -106,3 +106,4 @@ Route::group(['prefix' => '/'], function () {
     Route::get('product', [UserSanPhamController::class, 'danhsach'])->name('user.danhsachsanpham');
     Route::get('product-detail/{id}', [UserSanPhamController::class, 'chitietsp'])->name('user.chitietsanpham');
 });
+Route::get('add-cart', [GioHangController::class, 'index'])->name('user.giohang');

@@ -15,14 +15,13 @@ class Hoadonnhap extends Migration
     {
         Schema::create('hoadonnhap', function (Blueprint $table) {
             $table->Increments('id');
-            $table->integer('TAIKHOAN_ID')->unsigned();
-            $table->integer('SANPHAM_ID')->unsigned();
-            $table->date('NGAYNHAP');
-            $table->string('NHACUNGCAP');
-            $table->integer('TRANGTHAI');
-            $table->double('TONGTIEN');
+            $table->integer('TAIKHOAN_ID')->unsigned()->nullable();
+            $table->integer('SANPHAM_ID')->unsigned()->nullable();
+            $table->date('NGAYNHAP')->nullable();
+            $table->string('NHACUNGCAP')->nullable();
+            $table->integer('TRANGTHAI')->nullable();
+            $table->double('TONGTIEN')->nullable();
             $table->timestamps();
-
         });
     }
 
