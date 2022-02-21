@@ -11,10 +11,9 @@ class hoadonnhap extends Model
     protected $fillable = [
         'TAIKHOAN_ID',
         'SANPHAM_ID',
-        'NGAYNHAP',
         'NHACUNGCAP',
         'TRANGTHAI',
-        'SOLUONG',
+        'TONGSL',
         'TONGTIEN',
     ];
 

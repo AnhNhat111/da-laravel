@@ -185,12 +185,17 @@ class QuanLyTaiKhoanController extends Controller
     {
         $loaitk = DB::table('loaitaikhoan')->select('id','TENLOAITAIKHOAN')->get();
         $tk = DB::table('taikhoan')->select('*')->where('id',$id)->get();
-        $ad = DB::table('admin')->select('*')->where('id',$id)->get();
+        if(count($tk) < 1)
+        {
+            $tk = DB::table('admin')->select('*')->where('id',$id)->get();
+         }
+        // $ad = DB::table('admin')->select('*')->where('id',$id)->get();
+        
 
         return view('admin.pages.quanlytaikhoan.edit', [
             'loaitk' => $loaitk, 
             'tk' => $tk,
-            'ad' => $ad
+            // 'ad' => $ad
         ]);
     }
 

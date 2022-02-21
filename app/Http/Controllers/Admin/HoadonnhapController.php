@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\hoadonnhap;
+use App\Models\sanpham;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,10 +24,13 @@ class HoadonnhapController extends Controller
      */
     public function index()
     {
-        $pro = DB::table('hoadonnhap as hdn')->select('*')->get();
-     
-        return view('admin.pages.hoadonnhap.index',[
-             'pro'=> $pro]);
+        $pro = DB::table('hoadonnhap as hdn')
+            ->rightJoin('sanpham as sp', 'sp.id', 'hdn.SANPHAM_ID')
+            ->select('*')->get();
+
+        return view('admin.pages.hoadonnhap.index', [
+            'pro' => $pro
+        ]);
     }
 
     /**
@@ -36,7 +40,13 @@ class HoadonnhapController extends Controller
      */
     public function create()
     {
-        //
+        $masp = DB::table('sanpham')->get();
+        $tk =  DB::table('admin')->select('id', 'TENHIENTHI')->get();
+
+        return view('admin.pages.hoadonnhap.create', [
+            'products' => $masp,
+            'taikhoan' => $tk
+        ]);
     }
 
     /**
@@ -47,7 +57,30 @@ class HoadonnhapController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "TAIKHOAN_ID" => 'string',
+            "SANPHAM_ID" => 'string',
+            "NHACUNGCAP" => 'required|string',
+            "TONGSL" => '',
+            "TONGTIEN" => '',
+            'TRANGTHAI' => '',
+        ]);
+
+        $product = sanpham::find($data["SANPHAM_ID"]);
+
+        $create = $this->model::create([
+            "TAIKHOAN_ID" => $data['TAIKHOAN_ID'],
+            "SANPHAM_ID" => $data['SANPHAM_ID'],
+            "NHACUNGCAP" => $data['NHACUNGCAP'],
+            "TONGSL" => $data['TONGSL'],
+            "TONGTIEN" => $data['TONGSL'] * $product->GIABAN,
+            "TRANGTHAI" => $data['TRANGTHAI'] = 1
+        ]);
+
+        if ($create->save()) {
+            return redirect()->route('hoadonnhap.index');
+        }
+        return back()->withInput();
     }
 
     /**
@@ -92,6 +125,7 @@ class HoadonnhapController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kq = DB::delete('delete from hoadonhap where id = ?', [$id]);
+        return redirect()->route('hoadonban.index');
     }
 }
