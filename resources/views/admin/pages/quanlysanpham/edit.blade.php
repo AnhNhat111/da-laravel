@@ -10,8 +10,8 @@
         <select class="form-control" id="LOAISP_ID" name="LOAISP_ID" required>
             <option value="">-- Loại sản phẩm --</option>
             @foreach($loaisp as $lsp)
-            <option value="{!! $lsp->id !!}" {!! ($sp[0]->id == $lsp->id) ? 'selected="selected"' : null !!}>{!! $lsp->TENLOAISP !!}</option>
-        @endforeach
+                <option value="{!! $lsp->id !!}" {!! ($sp[0]->id == $lsp->id) ? 'selected="selected"' : null !!}>{!! $lsp->TENLOAISP !!}</option>
+            @endforeach
         </select>
         <label for="my-input">Tên sản phẩm</label>
         <input id="my-input" required class="form-control" type="text" name="TENSP" value="{{ $sp[0]->TENSP }}">

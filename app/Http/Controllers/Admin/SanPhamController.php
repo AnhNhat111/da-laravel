@@ -197,6 +197,7 @@ class SanPhamController extends Controller
      */
     public function destroy($id)
     {
+        
         return redirect()->route('QLsanpham.index');
     }
 }

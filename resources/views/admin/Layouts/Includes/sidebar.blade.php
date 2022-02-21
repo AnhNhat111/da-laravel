@@ -29,7 +29,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('hoadonban.index') }}">Quản lý hoá đơn bán</a></li>
-                    <li><a href="">Quản lý hoá đơn nhập</a></li>
+                    <li><a href="{{ route('hoadonnhap.index') }}">Quản lý hoá đơn nhập</a></li>
                 </ul>
             </li>
             <li>

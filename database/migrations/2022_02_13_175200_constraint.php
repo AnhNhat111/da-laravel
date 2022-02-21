@@ -27,7 +27,7 @@ class Constraint extends Migration
         });
         Schema::table('hoadonnhap', function (Blueprint $table) {
             $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
-            $table->foreign('TAIKHOAN_ID')->references('id')->on('taikhoan');
+            $table->foreign('TAIKHOAN_ID')->references('id')->on('admin');
         });
         Schema::table('chitiethoadonnhap', function (Blueprint $table) {
             $table->foreign('SANPHAM_ID')->references('id')->on('sanpham');
