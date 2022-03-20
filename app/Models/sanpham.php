@@ -20,6 +20,7 @@ class sanpham extends Model
     ];
     protected $primarykey = 'id';
     protected $table = 'sanpham';
+    
     public function danhsachsp()
     {
         $query = 'select * from sanpham ';
